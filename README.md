@@ -1,4 +1,4 @@
-# LA4DataScience
+# LinAlg4DataScience
 Code that accompanies the book "Linear Algebra for Data Science"
 
 I have a new book on linear algebra, published by O'Reilly. The book is currently in-progress and should be completely available by November 2022.
