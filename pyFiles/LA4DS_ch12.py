@@ -334,7 +334,7 @@ plt.show()
 
 
 
-# # Exercise 0 (Bike rental exercises)
+# # Exercise 1 (Bike rental exercises)
 
 # In[ ]:
 
@@ -404,7 +404,7 @@ plt.show()
 
 
 
-# # Exercise 1 (Bike rental exercises)
+# # Exercise 2 (Bike rental exercises)
 
 # In[ ]:
 
@@ -436,7 +436,7 @@ plt.show()
 
 
 
-# # Exercise 2 (multicollinearity)
+# # Exercise 3 (multicollinearity)
 
 # In[ ]:
 
@@ -542,7 +542,7 @@ print(f'  statsmodels : {np.round(beta3.T,3)}')
 
 
 
-# # Exercise 3 (regularization)
+# # Exercise 4 (regularization)
 
 # In[ ]:
 
@@ -565,7 +565,7 @@ print(f"inv(X'X + {gamma}*I) rank: {np.linalg.matrix_rank(leftinv)}")
 
 
 ### Note about this code:
-# Exercise 6 of chapter 13 relies on this code. Use the following toggle when you're on chapter 13 :)
+# Exercise 7 of chapter 13 relies on this code. Use the following toggle when you're on chapter 13 :)
 I_am_reading_chapter_13 = False
 
 
@@ -583,7 +583,7 @@ for i in range(len(gs)):
   # create lambda
   l = gs[i]*np.linalg.norm(desmat,'fro')**2
 
-  if I_am_reading_chapter_13: # exercise 13.6
+  if I_am_reading_chapter_13: # exercise 13.7
     l = gs[i]*np.mean(np.linalg.eig(desmat.T@desmat)[0])
 
   # compute left-inverse
@@ -626,7 +626,7 @@ plt.show()
 
 
 
-# # Exercise 4 (polynomial)
+# # Exercise 5 (polynomial)
 
 # In[ ]:
 
@@ -657,7 +657,7 @@ plt.show()
 
 
 
-# # Exercise 5 (grid search)
+# # Exercise 6 (grid search)
 
 # In[ ]:
 
@@ -731,7 +731,7 @@ print(f'   Intercept: {empIntercept:.2f}, slope: {empSlope:.2f}')
 
 
 
-# # Exercise 6 (grid search)
+# # Exercise 7 (grid search)
 
 # In[ ]:
 

@@ -7,7 +7,7 @@
 # 
 # #### Code for chapter 9
 
-# In[1]:
+# In[ ]:
 
 
 import numpy as np
@@ -105,7 +105,7 @@ plt.show()
 
 
 
-# In[14]:
+# In[ ]:
 
 
 # QR and matrix sizes
@@ -145,7 +145,7 @@ Q*np.sqrt(2)
 
 
 
-# # Exercise 0
+# # Exercise 1
 
 # In[ ]:
 
@@ -174,7 +174,7 @@ print(np.round( Q@Qi,8 ))
 
 
 
-# # Exercise 1
+# # Exercise 2
 
 # In[ ]:
 
@@ -220,7 +220,7 @@ print( np.round( Q+Q2 ,10) )
 
 
 
-# # Exercise 2
+# # Exercise 3
 
 # In[ ]:
 
@@ -252,7 +252,7 @@ print( np.round(r,3) ), print(' ')
 
 
 
-# # Exercise 3
+# # Exercise 4
 
 # In[ ]:
 
@@ -345,7 +345,7 @@ plt.show()
 
 
 
-# # Exercise 4
+# # Exercise 5
 
 # In[ ]:
 
@@ -419,7 +419,7 @@ plt.show()
 
 
 
-# # Exercise 5
+# # Exercise 6
 
 # In[ ]:
 
@@ -457,7 +457,7 @@ print(norm_Qv)
 
 
 
-# # Exercise 6
+# # Exercise 7
 
 # In[ ]:
 

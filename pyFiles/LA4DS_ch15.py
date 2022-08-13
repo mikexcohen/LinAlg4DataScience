@@ -98,7 +98,7 @@ print(norm / (len(q)-1))
 
 
 
-# # Exercise 0 (PCA of Instanbul stock exchange)
+# # Exercise 1 (PCA of Instanbul stock exchange)
 
 # In[ ]:
 
@@ -289,7 +289,7 @@ plt.show()
 
 
 
-# # Exercise 1
+# # Exercise 2
 
 # In[ ]:
 
@@ -352,7 +352,7 @@ print(Vt[0,:])
 
 
 
-# # Exercise 2
+# # Exercise 3
 
 # In[ ]:
 
@@ -387,7 +387,7 @@ print(pca.components_[0,:])
 
 
 
-# # Exercise 3
+# # Exercise 4
 
 # In[ ]:
 
@@ -448,13 +448,7 @@ plt.show()
 
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 4
+# # Exercise 5
 
 # In[ ]:
 
@@ -490,7 +484,7 @@ plt.show()
 
 
 
-# # Exercise 5
+# # Exercise 6
 
 # In[ ]:
 
@@ -596,7 +590,7 @@ plt.show()
 
 
 
-# # Exercise 6
+# # Exercise 7
 
 # In[ ]:
 
@@ -617,7 +611,7 @@ print(np.round( evecs.T @ covW @ evecs ,3))
 
 
 
-# # Exercise 7
+# # Exercise 8
 
 # In[ ]:
 
@@ -630,8 +624,8 @@ ldamodel.fit(alldata,labels)
 
 # show the results
 plt.figure(figsize=(12,5))
-plt.plot(ldamodel.predict(alldata),'ks',markersize=7,markerfacecolor='w',linewidth=2,label='sklearn LDA')
-plt.plot(predictedLabel,'r+',markersize=10,label='My LDA')
+plt.plot(predictedLabel,'ks',markersize=7,markerfacecolor='w',linewidth=2,label='My LDA')
+plt.plot(ldamodel.predict(alldata),'r+',markersize=10,markerfacecolor='w',linewidth=2,label='sklearn LDA')
 plt.plot([N-.5,N-.5],[-.5,1.5],'k--')
 plt.xlabel('Sample number')
 plt.ylabel('Predicted class')
@@ -649,7 +643,7 @@ plt.show()
 
 
 
-# # Exercise 8
+# # Exercise 9
 
 # In[ ]:
 
@@ -696,7 +690,7 @@ plt.show()
 
 
 
-# # Exercise 9
+# # Exercise 10
 
 # In[ ]:
 
@@ -787,7 +781,7 @@ plt.show()
 
 
 
-# # Exercise 10
+# # Exercise 11
 
 # In[ ]:
 
@@ -845,7 +839,7 @@ print(f'\nCompression of {100*(uSize+sSize+vSize)/stravSize:.2f}%')
 
 
 
-# # Exercise 11
+# # Exercise 12
 
 # In[ ]:
 
@@ -885,7 +879,7 @@ plt.show()
 
 
 
-# # Exercise 12
+# # Exercise 13
 
 # In[ ]:
 
@@ -1003,7 +997,7 @@ plt.show()
 
 
 
-# # Exercise 13
+# # Exercise 14
 
 # In[ ]:
 

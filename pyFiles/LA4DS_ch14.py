@@ -89,7 +89,7 @@ print(np.sort(sinvals))
 
 
 
-# # Exercise 0
+# # Exercise 1
 
 # In[ ]:
 
@@ -133,7 +133,7 @@ print(np.round(U+evecs,10)) # add for sign indeterminancy
 
 
 
-# # Exercise 1
+# # Exercise 2
 
 # In[ ]:
 
@@ -158,7 +158,7 @@ print(f"Size of V': {Vt.shape}")
 
 
 
-# # Exercise 2
+# # Exercise 3
 
 # In[ ]:
 
@@ -182,7 +182,7 @@ print( np.linalg.norm(  w) )
 
 
 
-# # Exercise 3
+# # Exercise 4
 
 # In[ ]:
 
@@ -234,7 +234,7 @@ plt.show()
 
 
 
-# # Exercise 4
+# # Exercise 5
 
 # In[ ]:
 
@@ -333,7 +333,7 @@ plt.show()
 
 
 
-# # Exercise 5
+# # Exercise 6
 
 # In[ ]:
 
@@ -368,7 +368,7 @@ print(np.round( ApinvNp - Apinv ,5))
 
 
 # check the source code for pinv
-get_ipython().run_line_magic('pinfo2', 'np.linalg.pinv')
+get_ipython().run_line_magic('pinfo2', 'np.linalg.pinv()')
 
 
 # In[ ]:
@@ -377,7 +377,7 @@ get_ipython().run_line_magic('pinfo2', 'np.linalg.pinv')
 
 
 
-# # Exercise 6
+# # Exercise 7
 
 # In[ ]:
 
@@ -417,7 +417,7 @@ print(np.round( Rinv - Apinv ,5))
 
 
 
-# # Exercise 7
+# # Exercise 8
 
 # In[ ]:
 

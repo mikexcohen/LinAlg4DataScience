@@ -302,7 +302,7 @@ res1,res2
 
 # # Solutions to code exercises
 
-# # Exercise 0
+# # Exercise 1
 
 # In[ ]:
 
@@ -362,10 +362,9 @@ plt.show()
 
 
 
-# # Exercise 1
+# # Exercise 2
 
 # In[ ]:
-
 
 
 # the function
@@ -387,10 +386,9 @@ print( normOfVect(w),np.linalg.norm(w) )
 
 
 
-# # Exercise 2
+# # Exercise 3
 
 # In[ ]:
-
 
 
 # define function
@@ -427,7 +425,7 @@ createUnitVector( np.zeros((4,1)) )
 
 
 
-# # Exercise 3
+# # Exercise 4
 
 # In[ ]:
 
@@ -454,7 +452,7 @@ print( np.linalg.norm(w),np.linalg.norm(mw) )
 
 
 
-# # Exercise 4
+# # Exercise 5
 
 # In[ ]:
 
@@ -485,7 +483,7 @@ print(vt)
 
 
 
-# # Exercise 5
+# # Exercise 6
 
 # In[ ]:
 
@@ -510,7 +508,7 @@ print( sqrNrm2 )
 
 
 
-# # Exercise 6
+# # Exercise 7
 
 # In[ ]:
 
@@ -532,7 +530,7 @@ atb - bta
 # For an extra challenge, see what happens when you use np.dot() to compute the dot products.
 
 
-# # Exercise 7
+# # Exercise 8
 
 # In[ ]:
 
@@ -583,7 +581,7 @@ plt.show()
 
 
 
-# # Exercise 8
+# # Exercise 9
 
 # In[ ]:
 
@@ -624,7 +622,7 @@ plt.savefig('Figure_02_08.png',dpi=300)
 plt.show()
 
 
-# # Exercise 9
+# # Exercise 10
 
 # In[ ]:
 

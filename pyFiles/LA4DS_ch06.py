@@ -204,7 +204,7 @@ plt.show()
 
 
 
-# # Exercise 0
+# # Exercise 1
 
 # In[ ]:
 
@@ -245,7 +245,7 @@ print(matrixNorms[0,:])
 
 
 
-# # Exercies 1
+# # Exercies 2
 
 # In[ ]:
 
@@ -315,7 +315,7 @@ plt.ylabel('Count');
 
 
 
-# # Exercise 2
+# # Exercise 3
 
 # In[ ]:
 
@@ -340,7 +340,7 @@ norm1-norm2
 
 
 
-# # Exercise 3
+# # Exercise 4
 
 # In[ ]:
 
@@ -399,7 +399,7 @@ plt.show()
 
 
 
-# # Exercise 4
+# # Exercise 5
 
 # In[ ]:
 
@@ -422,7 +422,7 @@ print(np.linalg.matrix_rank(A))
 
 
 
-# # Exercise 5
+# # Exercise 6
 
 # In[ ]:
 
@@ -482,7 +482,7 @@ np.linalg.matrix_rank(A),np.linalg.matrix_rank(B),np.linalg.matrix_rank(C)
 
 
 
-# # Exercise 6
+# # Exercise 7
 
 # In[ ]:
 
@@ -541,7 +541,7 @@ plt.show()
 
 
 
-# # Exercise 7
+# # Exercise 8
 
 # In[ ]:
 
@@ -572,7 +572,7 @@ print(
 
 
 
-# # Exercise 8
+# # Exercise 9
 
 # In[ ]:
 
@@ -606,7 +606,7 @@ is_V_inColA(A,v)
 
 
 
-# # Exercise 9
+# # Exercise 10
 
 # In[ ]:
 

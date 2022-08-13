@@ -254,7 +254,7 @@ plt.show()
 
 
 
-# # Exercise 0
+# # Exercise 1
 
 # In[ ]:
 
@@ -278,7 +278,7 @@ np.round( A-Aii ,10)
 
 
 
-# # Exercise 1
+# # Exercise 2
 
 # In[ ]:
 
@@ -362,7 +362,7 @@ plt.show()
 
 
 
-# # Exercise 3
+# # Exercise 4
 
 # In[ ]:
 
@@ -431,7 +431,7 @@ plt.show()
 
 
 
-# # Exercise 4
+# # Exercise 5
 
 # In[ ]:
 
@@ -481,7 +481,7 @@ np.round( ARight-Apinv,10 )
 
 
 
-# # Exercise 5
+# # Exercise 6
 
 # In[ ]:
 
@@ -511,7 +511,7 @@ print(f'Distance between (AB)^-1 and (B^-1)(A^-1) is {dist13:.8f}')
 
 
 
-# # Exercise 6
+# # Exercise 7
 
 # In[ ]:
 
@@ -533,7 +533,7 @@ op2 = np.linalg.inv(T) @ np.linalg.inv(T.T)
 
 
 
-# # Exercise 7
+# # Exercise 8
 
 # In[ ]:
 
@@ -581,7 +581,7 @@ plt.show()
 
 
 
-# # Exercise 7
+# # Exercise 9
 
 # In[ ]:
 
@@ -657,10 +657,9 @@ plt.show()
 
 
 
-# # Exercise 8
+# # Exercise 10
 
 # In[ ]:
-
 
 
 matSizes = np.arange(3,13)

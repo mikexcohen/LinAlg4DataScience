@@ -54,7 +54,7 @@ axs[2].imshow(C,cmap='gray')
 
 for i in range(3): axs[i].axis('off')
 plt.tight_layout()
-plt.savefig('Figure_06_01.png',dpi=300)
+plt.savefig('Figure_05_01.png',dpi=300)
 plt.show()
 
 
@@ -201,7 +201,7 @@ for mi,M in enumerate(matrices):
 
 
 
-plt.savefig('Figure_06_02.png',dpi=300)
+plt.savefig('Figure_05_02.png',dpi=300)
 plt.tight_layout()
 plt.show()
 
@@ -449,7 +449,7 @@ plt.xlim([-7,7])
 plt.ylim([-7,7])
 plt.legend()
 plt.grid()
-plt.savefig('Figure_06_05a.png',dpi=300)
+plt.savefig('Figure_05_05a.png',dpi=300)
 plt.show()
 
 
@@ -470,7 +470,7 @@ plt.xlim([-7,7])
 plt.ylim([-7,7])
 plt.legend()
 plt.grid()
-plt.savefig('Figure_06_05b.png',dpi=300)
+plt.savefig('Figure_05_05b.png',dpi=300)
 plt.show()
 
 
@@ -519,7 +519,7 @@ print( A_TT )
 
 
 
-# # Exercise 0
+# # Exercise 1
 
 # In[ ]:
 
@@ -536,7 +536,7 @@ ci = 3
 print(f'The matrix element at index ({ri+1},{ci+1}) is {A[ri,ci]}')
 
 
-# # Exercise 1
+# # Exercise 2
 
 # In[ ]:
 
@@ -572,11 +572,11 @@ for (j,i),num in np.ndenumerate(C_1):
   axs[1].text(i,j,num,color=[.8,.8,.8],ha='center',va='center')
 
 
-plt.savefig('Figure_06_06.png',dpi=300)
+plt.savefig('Figure_05_06.png',dpi=300)
 plt.show()
 
 
-# # Exercise 2
+# # Exercise 3
 # 
 
 # In[ ]:
@@ -613,11 +613,11 @@ axs[1].set_title('Block-shifted')
 for (j,i),num in np.ndenumerate(newMatrix):
   axs[1].text(i,j,num,color=[.8,.8,.8],ha='center',va='center')
 
-plt.savefig('Figure_06_07.png',dpi=300)
+plt.savefig('Figure_05_07.png',dpi=300)
 plt.show()
 
 
-# # Exercise 3
+# # Exercise 4
 
 # In[ ]:
 
@@ -646,7 +646,7 @@ M2 = np.ones((6,4))
 addMatrices(M1,M2)
 
 
-# # Exercise 4
+# # Exercise 5
 
 # In[ ]:
 
@@ -675,7 +675,7 @@ print(np.round(2*expr1 - expr2 - expr3,8))
 
 
 
-# # Exercise 5
+# # Exercise 6
 
 # In[ ]:
 
@@ -707,7 +707,7 @@ np.isclose( C1,C2 )
 
 
 
-# # Exercise 6
+# # Exercise 7
 
 # In[ ]:
 
@@ -733,7 +733,7 @@ print(res1-res3)
 
 
 
-# # Exercise 7
+# # Exercise 8
 
 # In[ ]:
 
@@ -771,7 +771,7 @@ print(isMatrixSymmetric(AtA))
 
 
 
-# # Exercise 8
+# # Exercise 9
 
 # In[ ]:
 
@@ -791,7 +791,7 @@ print(isMatrixSymmetric(AtA))
 
 
 
-# # Exercise 9
+# # Exercise 10
 
 # In[ ]:
 
@@ -828,7 +828,7 @@ fig.show()
 
 
 
-# # Exercise 10
+# # Exercise 11
 
 # In[ ]:
 
@@ -877,7 +877,7 @@ print(both)
 
 
 
-# # Exercise 11
+# # Exercise 12
 
 # In[ ]:
 

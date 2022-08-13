@@ -347,7 +347,7 @@ evals
 
 
 
-# # Exercise 0
+# # Exercise 1
 
 # In[ ]:
 
@@ -382,7 +382,7 @@ print(np.sort(1/eigvals_Ai))
 
 
 
-# # Exercise 1
+# # Exercise 2
 
 # In[ ]:
 
@@ -438,7 +438,7 @@ plt.show()
 
 
 
-# # Exercise 2
+# # Exercise 3
 
 # In[ ]:
 
@@ -540,7 +540,7 @@ plt.show()
 
 
 
-# # Exercise 3
+# # Exercise 4
 
 # In[ ]:
 
@@ -574,7 +574,7 @@ plt.show()
 
 
 
-# # Exercise 4
+# # Exercise 5
 
 # In[ ]:
 
@@ -610,7 +610,7 @@ for i in range(N):
 
 
 
-# # Exercise 5
+# # Exercise 6
 
 # In[ ]:
 
@@ -642,21 +642,21 @@ print(np.sort(np.linalg.eig(A)[0]))
 
 
 
-# # Exercise 6
-
-# In[ ]:
-
-
-# Refer back to the code for Chapter 12, exercise 3.
-
-
-# In[ ]:
-
-
-
-
-
 # # Exercise 7
+
+# In[ ]:
+
+
+# Refer back to the code for Chapter 12, exercise 4.
+
+
+# In[ ]:
+
+
+
+
+
+# # Exercise 8
 
 # In[ ]:
 
@@ -682,7 +682,7 @@ np.corrcoef(X)
 
 
 
-# # Exercise 8
+# # Exercise 9
 
 # In[ ]:
 
@@ -700,7 +700,7 @@ np.round( np.corrcoef(Y.T) ,3)
 
 
 
-# # Exercise 9
+# # Exercise 10
 
 # In[ ]:
 
@@ -738,7 +738,7 @@ plt.show()
 
 
 
-# # Exercise 10
+# # Exercise 11
 
 # In[ ]:
 

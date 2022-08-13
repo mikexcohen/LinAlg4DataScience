@@ -10,12 +10,6 @@
 # In[ ]:
 
 
-
-
-
-# In[ ]:
-
-
 # import libraries
 import numpy as np
 import matplotlib.pyplot as plt
@@ -359,7 +353,7 @@ plt.show()
 
 
 
-# # Exercise 0
+# # Exercise 1
 
 # In[ ]:
 
@@ -411,7 +405,7 @@ corrMat[i,j], data.columns[i], data.columns[j]
 
 
 
-# # Exercise 1
+# # Exercise 2
 
 # In[ ]:
 
@@ -452,7 +446,13 @@ get_ipython().run_line_magic('pinfo2', 'np.corrcoef')
 get_ipython().run_line_magic('pinfo2', 'np.cov')
 
 
-# # Exercise 2
+# In[ ]:
+
+
+
+
+
+# # Exercise 3
 
 # In[ ]:
 
@@ -492,7 +492,7 @@ plt.show()
 
 
 
-# # Exercise 3
+# # Exercise 4
 
 # In[ ]:
 
@@ -547,7 +547,7 @@ animation.FuncAnimation(fig, aframe, phi, interval=50, repeat=True)
 
 
 
-# # Exercise 4
+# # Exercise 5
 
 # In[ ]:
 
@@ -618,7 +618,7 @@ plt.show()
 
 
 
-# # Exercise 5
+# # Exercise 6
 
 # In[ ]:
 
@@ -660,4 +660,10 @@ ax[1,1].axis('off')
 
 plt.savefig('Figure_07_11.png',dpi=300)
 plt.show()
+
+
+# In[ ]:
+
+
+
 

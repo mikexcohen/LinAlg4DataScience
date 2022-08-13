@@ -22,7 +22,6 @@ plt.rcParams.update({'font.size':14}) # set global font size
 # In[ ]:
 
 
-
 N = 30
 
 # correlated random variables
@@ -98,7 +97,7 @@ plt.show()
 
 
 
-# # Exercise 0
+# # Exercise 1
 
 # In[ ]:
 
@@ -155,7 +154,7 @@ print( np.round(corrAndCosine(aNoMean,bNoMean),4) )
 # NOTE: In the printing code above, I rounded to 4 significant digits just for visual clarity.
 
 
-# ## Exercise 1
+# ## Exercise 2
 
 # In[ ]:
 
@@ -193,7 +192,7 @@ plt.show()
 
 
 
-# ## Exercise 2
+# ## Exercise 3
 
 # In[ ]:
 
@@ -211,7 +210,7 @@ get_ipython().run_line_magic('pinfo2', 'pearsonr')
 
 
 
-# ## Exercise 3
+# ## Exercise 4
 
 # In[ ]:
 
@@ -260,7 +259,7 @@ print(f'   pearsonr took {t2*1000:.2f} ms')
 
 
 
-# # Exercise 4 
+# # Exercise 5
 
 # In[ ]:
 
@@ -323,7 +322,7 @@ plt.show()
 
 
 
-# # Exercise 5
+# # Exercise 6
 
 # In[ ]:
 
@@ -380,7 +379,7 @@ plt.savefig('Figure_04_06c.png',dpi=300)
 plt.show()
 
 
-# # Exercise 6
+# # Exercise 7
 
 # In[ ]:
 
@@ -419,7 +418,7 @@ plt.show()
 
 
 
-# # Exercise 7
+# # Exercise 8
 
 # In[ ]:
 

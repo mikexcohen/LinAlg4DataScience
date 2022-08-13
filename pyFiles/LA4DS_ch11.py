@@ -7,13 +7,13 @@
 # 
 # #### Code for chapter 11
 
-# In[1]:
+# In[ ]:
 
 
 
 
 
-# In[2]:
+# In[ ]:
 
 
 import numpy as np
@@ -31,19 +31,19 @@ display.set_matplotlib_formats('svg') # display figures in vector format
 plt.rcParams.update({'font.size':14}) # set global font size
 
 
-# In[2]:
+# In[ ]:
 
 
 
 
 
-# In[2]:
+# In[ ]:
 
 
 
 
 
-# In[3]:
+# In[ ]:
 
 
 ## this code creates figure 2
@@ -70,7 +70,7 @@ plt.savefig('Figure_11_02.png',dpi=300)
 plt.show()
 
 
-# In[3]:
+# In[ ]:
 
 
 
@@ -78,7 +78,7 @@ plt.show()
 
 # # Example in fake data
 
-# In[4]:
+# In[ ]:
 
 
 numcourses = [13,4,12,3,14,13,12,9,11,7,13,11,9,2,5,7,10,0,9,7]
@@ -97,7 +97,7 @@ plt.savefig('Figure_11_03.png',dpi=300)
 plt.show()
 
 
-# In[5]:
+# In[ ]:
 
 
 # Build a statistical model
@@ -114,7 +114,7 @@ beta = X_leftinv @ happiness
 beta
 
 
-# In[6]:
+# In[ ]:
 
 
 # let's plot it!
@@ -144,7 +144,7 @@ plt.savefig('Figure_11_04.png',dpi=300)
 plt.show()
 
 
-# In[7]:
+# In[ ]:
 
 
 # Build a statistical model with an intercept
@@ -197,19 +197,7 @@ plt.show()
 
 
 
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 0
+# # Exercise 1
 
 # In[ ]:
 
@@ -247,7 +235,7 @@ np.linalg.norm(res)
 
 
 
-# # Exercise 1
+# # Exercise 2
 
 # In[ ]:
 
@@ -278,7 +266,7 @@ print(f'dim( [N(X)|r] ) = {np.linalg.matrix_rank(nullspaceAugment)}')
 
 
 
-# # Exercise 2
+# # Exercise 3
 
 # In[ ]:
 
@@ -310,13 +298,13 @@ beta3 = np.array(Raug_r[:,-1]) # convert back to numpy
 
 
 print('Betas from left-inverse: ')
-print(beta1), print(' ')
+print(np.round(beta1,3)), print(' ')
 
 print('Betas from QR with inv(R): ')
-print(beta2), print(' ')
+print(np.round(beta2,3)), print(' ')
 
 print('Betas from QR with back-substitution: ')
-print(beta3.T) # transposed to facilitate visual inspection
+print(np.round(np.array(beta3.T).astype(float),3)) # transposed to facilitate visual inspection
 
 
 # In[ ]:
@@ -341,13 +329,7 @@ print(np.round(np.array(Raug_r).astype(float),3)) # convert to numpy floats
 
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 3
+# # Exercise 4
 
 # In[ ]:
 
@@ -401,19 +383,7 @@ plt.show()
 
 
 
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 4
+# # Exercise 5
 
 # In[ ]:
 
@@ -483,4 +453,10 @@ print(Xinv1-Xinv3)
 print(' ')
 
 print(Xinv2-Xinv3)
+
+
+# In[ ]:
+
+
+
 

@@ -170,7 +170,7 @@ plt.show()
 
 
 
-# # Exercise 0
+# # Exercise 1
 
 # In[ ]:
 
@@ -198,7 +198,7 @@ toc # print the result in seconds
 
 
 
-# # Exercise 1
+# # Exercise 2
 
 # In[ ]:
 
@@ -239,7 +239,13 @@ plt.show()
 np.round(L,2)
 
 
-# # Exercise 2
+# In[ ]:
+
+
+
+
+
+# # Exercise 3
 
 # In[ ]:
 
@@ -268,7 +274,7 @@ print(detLU-detNP)
 
 
 
-# # Exercise 3
+# # Exercise 4
 
 # In[ ]:
 
@@ -295,7 +301,7 @@ np.round( A@invViaLU ,10)
 
 
 
-# # Exercise 4
+# # Exercise 5
 
 # In[ ]:
 
@@ -317,12 +323,6 @@ AtA_direct = A.T @ A
 
 # compare to direct computation
 np.round( AtA_lu - AtA_direct ,10)
-
-
-# In[ ]:
-
-
-
 
 
 # In[ ]:

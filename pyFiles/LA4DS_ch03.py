@@ -55,7 +55,6 @@ l1*v1 + l2*v2 + l3*v3
 # In[ ]:
 
 
-
 # points (in Cartesian coordinates)
 p = (3,1)
 q = (-6,2)
@@ -91,7 +90,7 @@ plt.show()
 
 # # Exercises
 
-# # Exercise 0
+# # Exercise 1
 
 # In[ ]:
 
@@ -119,7 +118,7 @@ linCombo
 
 
 
-# # Exercise 1
+# # Exercise 2
 
 # In[ ]:
 
@@ -144,7 +143,7 @@ for i in range(len(scalars)):
 
 
 
-# # Exercise 2
+# # Exercise 3
 
 # In[ ]:
 
@@ -215,18 +214,6 @@ fig = go.Figure( data=[go.Scatter3d(x=points[:,0], y=points[:,1], z=points[:,2],
 fig.update_layout(margin=dict(l=0,r=0,b=0,t=0))
 plt.savefig('Figure_03_07b.png',dpi=300)
 fig.show()
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
 
 
 # In[ ]:
