@@ -1,30 +1,12 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # Practical Linear Algebra for Data Science
-# ## Mike X Cohen (sincxpress.com)
-# ### https://www.oreilly.com/library/view/practical-linear-algebra/9781098120603/
-# 
-# #### Code for chapter 2
-
-# In[ ]:
-
-
 # import libraries
 import numpy as np
 import matplotlib.pyplot as plt
 
 
 # NOTE: these lines define global figure properties used for publication.
-from IPython import display
-display.set_matplotlib_formats('svg') # display figures in vector format
+import matplotlib_inline.backend_inline
+matplotlib_inline.backend_inline.set_matplotlib_formats('svg') # display figures in vector format
 plt.rcParams.update({'font.size':14}) # set global font size
-
-
-# # Creating vectors
-
-# In[ ]:
-
 
 # a vector as a Python list datatype
 asList = [1,2,3]
@@ -38,21 +20,11 @@ colVec = np.array([ [1],[2],[3] ]) # column
 
 # Note the use of spacing when defining the vectors; that is not necessary but makes the code more readable.
 
-
-# In[ ]:
-
-
 # Check the sizes of the variables
 print(f'asList:  {np.shape(asList)}') # using np's shape function
 print(f'asArray: {asArray.shape}') # using a method associated with numpy objects
 print(f'rowVec:  {rowVec.shape}')
 print(f'colVec:  {colVec.shape}')
-
-
-# # Geometry of vectors
-
-# In[ ]:
-
 
 # create a vector
 v = np.array([-1,2])
@@ -72,10 +44,6 @@ plt.xlabel('$v_0$')
 plt.ylabel('$v_1$')
 plt.title('Vector v in standard position')
 plt.show()
-
-
-# In[ ]:
-
 
 # A range of starting positions
 
@@ -114,12 +82,6 @@ plt.title('Vector $\mathbf{v}$ in various locations')
 plt.savefig('Figure_02_01.png',dpi=300) # write out the fig to a file
 plt.show()
 
-
-# # Adding vectors
-
-# In[ ]:
-
-
 # Using 2D vectors here instead of 3D vectors in the book to facilitate visualization
 v = np.array([1,2])
 w = np.array([4,-6])
@@ -133,18 +95,8 @@ print(vPlusW)
 # Note that here we don't need to worry about vector orientation (row vs. column), 
 # so for simplicity the vectors are created orientationless.
 
-
-# In[ ]:
-
-
 # Where's the code to generate Figure 3-2? 
 # It's exercise 0!
-
-
-# # Subtracting vectors
-
-# In[ ]:
-
 
 # Same v and w as above for comparison
 vMinusW = v-w
@@ -154,17 +106,7 @@ print(v)
 print(w)
 print(vMinusW)
 
-
-# In[ ]:
-
-
 # Code for Figure 3-2 is part of Exercise 0.
-
-
-# # Vector-scalar multiplication
-
-# In[ ]:
-
 
 # a scalar
 s = -1/2
@@ -177,19 +119,11 @@ print(b*s)
 
 # Question: Does vector b need to be a numpy array? What happens if it's a list?
 
-
-# In[ ]:
-
-
 # Scalar-vector addition
 s = 3.5
 
 print(v)
 print(s+v)
-
-
-# In[ ]:
-
 
 # plot
 plt.plot([0,b[0]],[0,b[1]],'m--',linewidth=3,label='b')
@@ -200,10 +134,6 @@ plt.axis('square')
 plt.axis([-6,6,-6,6])
 plt.legend()
 plt.show()
-
-
-# In[ ]:
-
 
 # Effects of different scalars
 
@@ -236,20 +166,11 @@ plt.savefig('Figure_02_03.png',dpi=300)
 plt.show()
 
 
-# # Vector transpose
-
-# In[ ]:
-
-
 # Row vector
 r = np.array([ [1,2,3] ])
 
 # orientationless array
 l = np.array([1,2,3])
-
-
-# In[ ]:
-
 
 # print out the vector, its transpose, and its double-transpose
 print(r), print(' ')
@@ -260,25 +181,11 @@ print(r.T), print(' ')
 # double-transpose
 print(r.T.T)
 
-
-# In[ ]:
-
-
 # Same for the orientationless array
 print(l), print(' ')
 print(l.T), print(' ')
 print(l.T.T)
 
-
-# In[ ]:
-
-
-
-
-
-# # The dot product is distributive
-
-# In[ ]:
 
 
 # just some random vectors...
@@ -293,18 +200,6 @@ res2 = np.dot( v,w ) + np.dot( v,u )
 # show that they are equivalent
 res1,res2
 
-
-# In[ ]:
-
-
-
-
-
-# # Solutions to code exercises
-
-# # Exercise 1
-
-# In[ ]:
 
 
 # The vectors
@@ -330,10 +225,6 @@ plt.title('Vectors $\mathbf{v}$, $\mathbf{w}$, and $\mathbf{v+w}$')
 plt.savefig('Figure_02_02a.png',dpi=300) # write out the fig to a file
 plt.show()
 
-
-# In[ ]:
-
-
 # vector difference
 vMinusW = v-w
 
@@ -356,15 +247,6 @@ plt.savefig('Figure_02_02b.png',dpi=300)
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 2
-
-# In[ ]:
 
 
 # the function
@@ -380,15 +262,6 @@ w = np.array([1,2,3])
 print( normOfVect(w),np.linalg.norm(w) )
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 3
-
-# In[ ]:
 
 
 # define function
@@ -419,16 +292,6 @@ print('\n\n\n') # just some spaces
 createUnitVector( np.zeros((4,1)) )
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 4
-
-# In[ ]:
-
 
 # define the function
 def createMagVector(v,mag):
@@ -446,15 +309,6 @@ print( mw )
 print( np.linalg.norm(w),np.linalg.norm(mw) )
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 5
-
-# In[ ]:
 
 
 # the row vector to transpose
@@ -477,16 +331,6 @@ print(vt)
 #  (1) write 3. instead of 3 when creating v; (2) use dtype=np.float as an optional input.
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 6
-
-# In[ ]:
-
 
 # some vector
 c = np.random.randn(5)
@@ -501,16 +345,6 @@ sqrNrm2 = normOfVect(c)**2
 print( sqrNrm1 )
 print( sqrNrm2 )
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 7
-
-# In[ ]:
 
 
 # dimensionality
@@ -528,12 +362,6 @@ bta = np.sum(b*a)
 atb - bta
 
 # For an extra challenge, see what happens when you use np.dot() to compute the dot products.
-
-
-# # Exercise 8
-
-# In[ ]:
-
 
 # the vectors a and b
 a = np.array([1,2])
@@ -575,16 +403,6 @@ plt.axis([-1,2.5,-1,2.5])
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 9
-
-# In[ ]:
-
 
 # generate random R2 vectors (note: no orientation here! we don't need it for this exercise)
 t = np.random.randn(2)
@@ -621,12 +439,5 @@ plt.legend()
 plt.savefig('Figure_02_08.png',dpi=300)
 plt.show()
 
-
-# # Exercise 10
-
-# In[ ]:
-
-
 # Replace t_para in the previous exercise with the line below:
 t_para = r * (np.dot(t,r) / np.dot(t,t))
-

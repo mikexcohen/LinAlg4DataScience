@@ -1,33 +1,11 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # Practical Linear Algebra for Data Science
-# ## Mike X Cohen (sincxpress.com)
-# ### https://www.oreilly.com/library/view/practical-linear-algebra/9781098120603/
-# 
-# #### Code for chapter 13
-
-# In[ ]:
-
-
 import numpy as np
 import matplotlib.pyplot as plt
 
 # NOTE: these lines define global figure properties used for publication.
-from IPython import display
-display.set_matplotlib_formats('svg') # display figures in vector format
+import matplotlib_inline.backend_inline
+matplotlib_inline.backend_inline.set_matplotlib_formats('svg') # display figures in vector format
 plt.rcParams.update({'font.size':14}) # set global font size
 
-
-# In[ ]:
-
-
-
-
-
-# # Geometry of eigenvectors
-
-# In[ ]:
 
 
 # in 2D of course, for visualization
@@ -79,16 +57,6 @@ plt.savefig('Figure_13_01.png',dpi=300)
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Finding eigenvalues
-
-# In[ ]:
-
 
 matrix = np.array([
              [1,2],
@@ -99,26 +67,12 @@ matrix = np.array([
 evals = np.linalg.eig(matrix)[0]
 evals
 
-
-# In[ ]:
-
-
 # Finding eigenvectors
 
 evals,evecs = np.linalg.eig(matrix)
 print(evals), print(' ')
 print(evecs)
 
-
-# In[ ]:
-
-
-
-
-
-# # Finding eigenvectors
-
-# In[ ]:
 
 
 # same matrix as above
@@ -131,24 +85,10 @@ print(f'\nMatrix of eigenvectors (in the columns!):')
 print(evecs)
 
 
-# In[ ]:
-
-
-
-
-
-# # Diagonalizing a matrix
-
-# In[ ]:
-
 
 # using variables created above
 D = np.diag(evals)
 D
-
-
-# In[ ]:
-
 
 # confirm the matrix eigenvalue equation:
 LHS = matrix @ evecs
@@ -162,16 +102,6 @@ print(LHS)
 print(f'\nRight-hand side:')
 print(RHS)
 
-
-# In[ ]:
-
-
-
-
-
-# # Special properties of symmetric matrices
-
-# In[ ]:
 
 
 # just some random matrix
@@ -188,16 +118,8 @@ print( np.dot(V[:,0],V[:,1]) )
 print( np.dot(V[:,0],V[:,2]) )
 print( np.dot(V[:,1],V[:,2]) )
 
-
-# In[ ]:
-
-
 # show that V'V=I
 np.round( V.T@V ,10) # rounded for visibility (precision errors...)
-
-
-# In[ ]:
-
 
 # real-valued matrix with complex-valued eigenvalues
 
@@ -213,10 +135,6 @@ A = np.array([[-3, -3, 0],
 # its eigendecomposition
 L,V = np.linalg.eig(A)
 L.reshape(-1,1) # print as column vector
-
-
-# In[ ]:
-
 
 # repeat for symmetric matrices
 
@@ -234,16 +152,6 @@ A = np.array([[-3, -3, 0],
 L,V = np.linalg.eig(A)
 L.reshape(-1,1) # print as column vector
 
-
-# In[ ]:
-
-
-
-
-
-# # Eigendecomposition of singular matrices
-
-# In[ ]:
 
 
 # a singular matrix
@@ -265,10 +173,6 @@ print(L.round(2)), print(' ')
 print('Eigenvectors:')
 print(V.round(2))
 
-
-# In[ ]:
-
-
 # FYI, random singular matrix
 M = np.random.randn(5,3) @ np.random.randn(3,5)
 M = M.T@M # make it symmetric for real-valued eigenvalues
@@ -276,16 +180,6 @@ M = M.T@M # make it symmetric for real-valued eigenvalues
 # print its eigenvalues (rounded and columnized for clarity)
 np.linalg.eig(M)[0].reshape(-1,1).round(3)
 
-
-# In[ ]:
-
-
-
-
-
-# # Quadratic form
-
-# In[ ]:
 
 
 # a matrix with only positive quad.form values
@@ -298,10 +192,6 @@ x,y = np.random.randn(2)
 print(f'\nSome random quadratic form result:')
 A[0,0]*x**2 + (A[1,0]+A[0,1])*x*y + A[1,1]*y**2
 
-
-# In[ ]:
-
-
 # a matrix with both positive and negative quad.form values
 A = np.array([ [-9,4],[3,9] ])
 print('Eigenvalues: ')
@@ -312,16 +202,6 @@ x,y = np.random.randn(2)
 print(f'\nSome random quadratic form result:')
 A[0,0]*x**2 + (A[1,0]+A[0,1])*x*y + A[1,1]*y**2
 
-
-# In[ ]:
-
-
-
-
-
-# # Generalized eigendecomposition
-
-# In[ ]:
 
 
 n = 4
@@ -340,16 +220,6 @@ from scipy.linalg import eigh
 evals,evecs = eigh(A,B)
 evals
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 1
-
-# In[ ]:
 
 
 # create the matrix
@@ -375,16 +245,6 @@ print(' ')
 print('Reciprocal of evals of inv(A):')
 print(np.sort(1/eigvals_Ai))
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 2
-
-# In[ ]:
 
 
 # the matrix
@@ -432,16 +292,6 @@ for i in range(2):
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 3
-
-# In[ ]:
-
 
 # instructions don't specify matrix size; I'll use n=5
 N = 5
@@ -466,10 +316,6 @@ print(np.round( A-Arecon ,4))
 reconAcc[0] = np.sqrt(np.sum( (A-Arecon)**2 ))
 print(f'\nFrobenius distance: {reconAcc[0]}')
 
-
-# In[ ]:
-
-
 # create D-tilde
 Dtild = np.diag( d[np.random.permutation(N)] )
 
@@ -479,10 +325,6 @@ print(np.round( A-Arecon ,4))
 
 reconAcc[1] = np.sqrt(np.sum( (A-Arecon)**2 ))
 print(f'\nFrobenius distance: {reconAcc[1]}')
-
-
-# In[ ]:
-
 
 ### swap only the two largest eigenvalues
 evals_sort_idx = np.argsort(d) # note: default is to sort 
@@ -498,10 +340,6 @@ print(np.round( A-Arecon ,4))
 reconAcc[2] = np.sqrt(np.sum( (A-Arecon)**2 ))
 print(f'\nFrobenius distance: {reconAcc[2]}')
 
-
-# In[ ]:
-
-
 ### swap only the two smallest eigenvalues
 evals_sort_idx = np.argsort(d) # note: default is to sort 
 i = evals_sort_idx[np.r_[1,0,np.arange(2,N)]][::-1]
@@ -516,10 +354,6 @@ print(np.round( A-Arecon ,4))
 reconAcc[3] = np.sqrt(np.sum( (A-Arecon)**2 ))
 print(f'\nFrobenius distance: {reconAcc[3]}')
 
-
-# In[ ]:
-
-
 # now for the plot
 
 plt.figure(figsize=(8,6))
@@ -533,16 +367,6 @@ plt.title('Reconstruction accuracy')
 plt.savefig('Figure_13_03.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 4
-
-# In[ ]:
 
 
 nIter = 123
@@ -567,16 +391,6 @@ plt.ylabel('Imag')
 plt.savefig('Figure_13_04.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 5
-
-# In[ ]:
 
 
 # get the null_space function from scipy
@@ -604,16 +418,6 @@ for i in range(N):
   print(f'Correlation between N(A-lI) and evec {i}: {np.abs(r):.2f}')
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 6
-
-# In[ ]:
-
 
 # Create the Lambda matrix with positive values
 Lambda = np.diag( np.random.rand(4)*5 )
@@ -627,38 +431,14 @@ A = Q @ Lambda @ Q.T
 # the matrix minus its transpose should be zeros (within precision error)
 np.round( A-A.T ,5)
 
-
-# In[ ]:
-
-
 # check eigenvalues against Lambda (sorting is helpful!)
 print(np.sort(np.diag(Lambda)))
 print(np.sort(np.linalg.eig(A)[0]))
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 7
-
-# In[ ]:
-
 
 # Refer back to the code for Chapter 12, exercise 4.
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 8
-
-# In[ ]:
 
 
 # correlation matrix
@@ -676,16 +456,6 @@ X = V @ np.sqrt(D) @ np.random.randn(3,10000)
 np.corrcoef(X)
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 9
-
-# In[ ]:
-
 
 # now whiten
 Y = X.T @ V @ np.linalg.inv(np.sqrt(D))
@@ -693,16 +463,6 @@ Y = X.T @ V @ np.linalg.inv(np.sqrt(D))
 # and check the correlations
 np.round( np.corrcoef(Y.T) ,3)
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 10
-
-# In[ ]:
 
 
 # two symmetric matrices and GED
@@ -732,16 +492,6 @@ plt.savefig('Figure_13_05.png',dpi=300)
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 11
-
-# In[ ]:
-
 
 # create the matrix
 A = np.random.randint(-14,15,(4,4))
@@ -766,10 +516,6 @@ for i in range(A.shape[0]):
 
 
 # Discussion: Scaling V doesn't matter because that scalar is normalized out in the matrix inverse.
-
-
-# In[ ]:
-
 
 ## repeat for a symmetric matrix using V' instead of inv(V)
 # create the matrix
@@ -797,9 +543,4 @@ for i in range(A.shape[0]):
 
 # Discussion: Scaling V *does* matter because V is not explicitly inverted!
 
-
-# In[ ]:
-
-
 # 
-

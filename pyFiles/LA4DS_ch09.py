@@ -1,15 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # Practical Linear Algebra for Data Science
-# ## Mike X Cohen (sincxpress.com)
-# ### https://www.oreilly.com/library/view/practical-linear-algebra/9781098120603/
-# 
-# #### Code for chapter 9
-
-# In[ ]:
-
-
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -18,20 +6,10 @@ import matplotlib.gridspec as gridspec
 
 
 # NOTE: these lines define global figure properties used for publication.
-from IPython import display
-display.set_matplotlib_formats('svg') # display figures in vector format
+import matplotlib_inline.backend_inline
+matplotlib_inline.backend_inline.set_matplotlib_formats('svg') # display figures in vector format
 plt.rcParams.update({'font.size':14}) # set global font size
 
-
-# In[ ]:
-
-
-
-
-
-# # Orthogonal matrices
-
-# In[ ]:
 
 
 # specify the matrices
@@ -43,16 +21,6 @@ print( np.round(Q1.T @ Q1,8) ), print(' ')
 
 print( np.round(Q2.T @ Q2,8) )
 
-
-# In[ ]:
-
-
-
-
-
-# # QR decomposition
-
-# In[ ]:
 
 
 # create a random matrix
@@ -99,14 +67,6 @@ plt.savefig('Figure_09_01.png',dpi=300)
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
 
 # QR and matrix sizes
 
@@ -121,10 +81,6 @@ print(f'Size of A (M,N): {A.shape}')
 print(f'Size of Q (M,N): {Q.shape}')
 print(f'Size of R (M,N): {R.shape}')
 
-
-# In[ ]:
-
-
 # illustration of full Q from M>N A
 
 A = np.array([ [1,-1] ]).T
@@ -133,21 +89,7 @@ Q,R = np.linalg.qr(A,'complete')
 Q*np.sqrt(2)
 
 
-# In[ ]:
 
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 1
-
-# In[ ]:
 
 
 # compute matrices
@@ -168,15 +110,6 @@ print(np.round( Qi@Q,8 )), print(' ')
 print(np.round( Q@Qi,8 ))
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 2
-
-# In[ ]:
 
 
 # create the matrix 
@@ -214,16 +147,6 @@ print( np.round( Q-Q2 ,10) ), print(' ')
 print( np.round( Q+Q2 ,10) )
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 3
-
-# In[ ]:
-
 
 # create an orthogonal matrix, call it U (to avoid confusing with Q)
 U = np.linalg.qr( np.random.randn(6,6) )[0]
@@ -245,16 +168,6 @@ q,r = np.linalg.qr(U)
 print( np.round(r,3) ), print(' ')
 # print( np.round(Q.T@Q,4))
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 4
-
-# In[ ]:
 
 
 # a function to compute the inverse
@@ -301,10 +214,6 @@ def oldSchoolInv(A):
   # compute adjugate matrix
   return C.T / np.linalg.det(A)
 
-
-# In[ ]:
-
-
 # create a matrix
 n = 5
 A = np.random.randn(n,n)
@@ -338,16 +247,6 @@ plt.title(f'Inverse error ({n}x{n} matrix)',ha='center')
 plt.savefig('Figure_09_03.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 5
-
-# In[ ]:
 
 
 # run experiment
@@ -394,10 +293,6 @@ plt.title(f'Inverse error ({n}x{n} matrix)',ha='center')
 plt.savefig('Figure_09_04a.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
 # and plot
 plt.figure(figsize=(6,6))
 
@@ -413,16 +308,6 @@ plt.savefig('Figure_09_04b.png',dpi=300)
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 6
-
-# In[ ]:
-
 
 # create a random orthogonal matrix
 n = 13
@@ -432,10 +317,6 @@ Q,R = np.linalg.qr(np.random.randn(n,n))
 print( np.linalg.norm(Q,2),               # induced 2-norm
        np.sqrt( np.sum(Q**2) )/np.sqrt(n) # manually computed Frobenius norm
 )
-
-
-# In[ ]:
-
 
 # effects of matrix multiplication on vector norm
 
@@ -451,16 +332,6 @@ print(norm_v)
 print(norm_Qv)
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 7
-
-# In[ ]:
-
 
 # the matrix
 A = np.random.randn(10,4)
@@ -470,10 +341,6 @@ _,R = np.linalg.qr(A,'complete')
 
 # examine R
 np.round(R,3)
-
-
-# In[ ]:
-
 
 # invertible submatrix
 Rsub = R[:4,:]
@@ -488,10 +355,5 @@ print(np.round(Rsub_inv,3)), print(f'\n\n')
 
 print('Left inverse of R:')
 print(np.round(Rleftinv,3))
-
-
-# In[ ]:
-
-
 
 

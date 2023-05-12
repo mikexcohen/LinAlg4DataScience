@@ -1,21 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # Practical Linear Algebra for Data Science
-# ## Mike X Cohen (sincxpress.com)
-# ### https://www.oreilly.com/library/view/practical-linear-algebra/9781098120603/
-# 
-# #### Code for chapter 15
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.gridspec import GridSpec # for the subplots
@@ -24,20 +6,10 @@ import pandas as pd
 import seaborn as sns
 
 # NOTE: these lines define global figure properties used for publication.
-from IPython import display
-display.set_matplotlib_formats('svg') # display figures in vector format
+import matplotlib_inline.backend_inline
+matplotlib_inline.backend_inline.set_matplotlib_formats('svg') # display figures in vector format
 plt.rcParams.update({'font.size':14}) # set global font size
 
-
-# In[ ]:
-
-
-
-
-
-# # Creating Figure 1
-
-# In[ ]:
 
 
 # Create some correlated data
@@ -71,10 +43,6 @@ plt.tight_layout()
 plt.savefig('Figure_15_01.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
 # Empirical demonstration that variance and squared vector norm are equal.
 # You can prove their equivalence by writing down their formulas and assuming the vector is mean-centered.
 
@@ -92,16 +60,6 @@ print(var)
 print(norm / (len(q)-1))
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 1 (PCA of Instanbul stock exchange)
-
-# In[ ]:
-
 
 # Data citation: Akbilgic, Oguz. (2013). ISTANBUL STOCK EXCHANGE. UCI Machine Learning Repository.
 # data source website: https://archive-beta.ics.uci.edu/ml/datasets/istanbul+stock+exchange
@@ -113,27 +71,15 @@ data = pd.read_excel(url,index_col=0,skiprows=1)
 # let's have a look
 data
 
-
-# In[ ]:
-
-
 # show some data in line plots
 data.plot(figsize=(15,6),ylabel='Market returns')
 plt.savefig('Figure_15_03a.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
 # Seaborn's pairplot shows a lot of positive correlations
 # I don't show this in the book b/c it's too big, lol.
 sns.pairplot(data,height=1.5)
 plt.show()
-
-
-# In[ ]:
-
 
 ### show the correlation matrix in an image
 
@@ -142,14 +88,6 @@ heatmap = sns.heatmap(data.corr(),vmin=-1,vmax=1,annot=True,cmap='bwr')
 plt.savefig('Figure_15_03b.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
 
 
 #### now for PCA!
@@ -170,10 +108,6 @@ plt.xticks(range(X.shape[1]),labels=data.columns,rotation=90)
 plt.yticks(range(X.shape[1]),labels=data.columns)
 plt.savefig('Figure_15_03c.png',dpi=300)
 plt.show()
-
-
-# In[ ]:
-
 
 # Step 2: eigendecomposition
 evals,evecs = np.linalg.eig(covmat)
@@ -201,20 +135,12 @@ plt.title('Scree plot of stocks dataset')
 plt.grid()
 plt.show()
 
-
-# In[ ]:
-
-
 # Show that variance of the components equals the eigenvalue
 print('Variance of first two components:')
 print(np.var(components,axis=0,ddof=1)) # note the ddof=1! The default produces the biased variance.
 
 print(f'\nFirst two eigenvalues:')
 print(evals[:2])
-
-
-# In[ ]:
-
 
 # correlate first two components
 
@@ -224,10 +150,6 @@ plt.xlabel('Time (day)')
 plt.legend(['Comp. 1','Comp. 2'])
 plt.title(f'Correlation r={np.corrcoef(components.T)[0,1]:.5f}')
 plt.show()
-
-
-# In[ ]:
-
 
 _,axs = plt.subplots(1,2,figsize=(12,5))
 
@@ -240,10 +162,6 @@ for i in range(2):
 
 plt.tight_layout()
 plt.show()
-
-
-# In[ ]:
-
 
 # Now all in one figure
 
@@ -283,16 +201,6 @@ plt.savefig('Figure_15_04.png',dpi=300)
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 2
-
-# In[ ]:
-
 
 ### SVD on covariance matrix
 
@@ -316,10 +224,6 @@ print(evecs[:,0])
 
 print('\nFirst singular vector:')
 print(U[:,0])
-
-
-# In[ ]:
-
 
 ### SVD on data matrix
 
@@ -346,16 +250,6 @@ print('\nFirst right singular vector:')
 print(Vt[0,:])
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 3
-
-# In[ ]:
-
 
 ### As above, it suffices to show that the eigenvalues and eigenvectors match.
 
@@ -381,16 +275,6 @@ print('\nFirst sklearn component vector:')
 print(pca.components_[0,:])
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 4
-
-# In[ ]:
-
 
 # generate data
 
@@ -408,10 +292,6 @@ R2 = np.array([ [np.cos(th), -np.sin(th)],
 X = np.vstack((x@R1,x@R2))
 X.shape
 
-
-# In[ ]:
-
-
 # PCA via SVD
 U,s,Vt = np.linalg.svd(X-np.mean(X,axis=0,keepdims=True))
 
@@ -420,10 +300,6 @@ s = s**2 / (X.shape[0]-1)
 
 # also not necessary: up-scale the singular vectors for visualization
 Vt *= 2
-
-
-# In[ ]:
-
 
 # plot the data and eigenvectors
 
@@ -441,16 +317,6 @@ plt.grid()
 plt.savefig('Figure_15_05.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 5
-
-# In[ ]:
 
 
 # create the data
@@ -478,16 +344,6 @@ plt.savefig('Figure_15_02a.png',dpi=300)
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 6
-
-# In[ ]:
-
 
 # LDA
 
@@ -514,10 +370,6 @@ evecs = evecs[:,sidx]
 
 # project the mean-centered data onto the GED axes
 projA = (alldata-np.mean(alldata,axis=0)) @ evecs  # A=all
-
-
-# In[ ]:
-
 
 # show the data
 _,axs = plt.subplots(1,2,figsize=(12,6))
@@ -551,10 +403,6 @@ plt.tight_layout()
 plt.savefig('Figure_15_06ab.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
 # prediction (converted to ints)
 predictedLabel = ( projA[:,0] > 0 )+0
 
@@ -571,10 +419,6 @@ plt.title(f'Accuracy = {100*np.mean(predictedLabel==labels):.2f}%')
 plt.savefig('Figure_15_06c.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
 # redraw the jointplot in the GED space (used in Figure 2)
 ax = sns.jointplot(x=projA[:,0],y=projA[:,1],hue=labels,xlim=[-6,6],ylim=[-6,6])
 ax.ax_joint.set_xlabel('LDA axis 1')
@@ -583,16 +427,6 @@ ax.plot_joint(sns.kdeplot)
 plt.savefig('Figure_15_02b.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 7
-
-# In[ ]:
 
 
 # not the identity matrix!
@@ -604,16 +438,6 @@ print(np.round( evecs.T @ evecs ,3))
 print(f"\nV'RV:")
 print(np.round( evecs.T @ covW @ evecs ,3))
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 8
-
-# In[ ]:
 
 
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
@@ -636,16 +460,6 @@ plt.title(f'Accuracy = {100*np.mean(ldamodel.predict(alldata)==labels):.2f}%')
 plt.savefig('Figure_15_07.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 9
-
-# In[ ]:
 
 
 # shrinkage amounts
@@ -684,16 +498,6 @@ plt.savefig('Figure_15_08.png',dpi=300)
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 10
-
-# In[ ]:
-
 
 from skimage import io,color
 url = 'https://upload.wikimedia.org/wikipedia/en/1/1c/Stravinsky_picasso.png'
@@ -706,10 +510,6 @@ plt.figure(figsize=(8,8))
 plt.imshow(strav,cmap='gray')
 plt.title(f'Matrix size: {strav.shape}, rank: {np.linalg.matrix_rank(strav)}')
 plt.show()
-
-
-# In[ ]:
-
 
 # SVD
 U,s,Vt = np.linalg.svd(strav)
@@ -724,10 +524,6 @@ plt.ylabel('Singular value')
 plt.title('Scree plot of Stravinsky picture')
 plt.grid()
 plt.show()
-
-
-# In[ ]:
-
 
 fig = plt.figure(figsize=(9,9))
 gs = GridSpec(3,4,figure=fig)
@@ -775,16 +571,6 @@ plt.savefig('Figure_15_09.png',dpi=300)
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 11
-
-# In[ ]:
-
 
 # Reconstruct based on first k layers
 
@@ -811,10 +597,6 @@ plt.tight_layout()
 plt.savefig('Figure_15_10.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
 # compute sizes of the images
 stravSize  = strav.nbytes / 1024**2
 stravRSize = stravRec.nbytes / 1024**2
@@ -832,16 +614,6 @@ print(f'Recon vectors are {uSize+sSize+vSize:.2f} mb (using k={k} comps.)')
 
 print(f'\nCompression of {100*(uSize+sSize+vSize)/stravSize:.2f}%')
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 12
-
-# In[ ]:
 
 
 # range of components
@@ -872,16 +644,6 @@ plt.title('Reconstruction accuracy')
 plt.savefig('Figure_15_11.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 13
-
-# In[ ]:
 
 
 # create a spatial sine wave
@@ -923,10 +685,6 @@ plt.tight_layout()
 plt.savefig('Figure_15_12.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
 # SVD
 Un,sn,Vtn = np.linalg.svd(stravNoise)
 Sn = np.zeros_like(stravNoise)
@@ -940,10 +698,6 @@ plt.ylabel('Singular value')
 plt.title('Scree plot of Noisy Stravinsky picture')
 plt.grid()
 plt.show()
-
-
-# In[ ]:
-
 
 fig = plt.figure(figsize=(9,9))
 gs = GridSpec(3,4,figure=fig)
@@ -991,16 +745,6 @@ plt.savefig('Figure_15_13.png',dpi=300)
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 14
-
-# In[ ]:
-
 
 # Reconstruct based on first k layers
 
@@ -1040,16 +784,7 @@ plt.tight_layout()
 plt.savefig('Figure_15_14.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
 # histogram of noise reconstruction
 plt.hist(stravRecNoise.flatten(),100);
-
-
-# In[ ]:
-
-
 
 

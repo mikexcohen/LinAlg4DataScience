@@ -1,15 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # Practical Linear Algebra for Data Science
-# ## Mike X Cohen (sincxpress.com)
-# ### https://www.oreilly.com/library/view/practical-linear-algebra/9781098120603/
-# 
-# #### Code for chapter 5
-
-# In[ ]:
-
-
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -21,23 +9,13 @@ from scipy.linalg import toeplitz
 
 
 # NOTE: these lines define global figure properties used for publication.
-from IPython import display
-display.set_matplotlib_formats('svg') # print figures in svg format
+import matplotlib_inline.backend_inline
+matplotlib_inline.backend_inline.set_matplotlib_formats('svg') # print figures in svg format
 plt.rcParams.update({'font.size':14}) # set global font size
-
-
-# In[ ]:
-
 
 v = np.array([[1,2,3]]).T # col vector
 w = np.array([[10,20]])   # row vector
 v + w
-
-
-# # Visualizing matrices as images
-
-# In[ ]:
-
 
 # create some matrices
 A = np.random.randn(3,4)
@@ -58,24 +36,10 @@ plt.savefig('Figure_05_01.png',dpi=300)
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Slicing out rows and columns
-
-# In[ ]:
-
 
 # create a matrix
 A = np.reshape(np.arange(1,10),(3,3))
 print(A)
-
-
-# In[ ]:
-
 
 # get the n-th row
 
@@ -85,31 +49,15 @@ print( A[1,:] )
 print( A[1] )
 # But that's potentially confusing, so I recommend avoiding that notation.
 
-
-# In[ ]:
-
-
 # get the n-th column
 print( A[:,1] )
 # Note that it prints out as a "row" even thought it's a column of the matrix
 
-
-# In[ ]:
-
-
 # multiple rows
 A[0:2,:]
 
-
-# In[ ]:
-
-
 # multiple columns
 A[:,1:]
-
-
-# In[ ]:
-
 
 ## extracting a submatrix (multiple rows and cols)
 
@@ -130,10 +78,6 @@ print(' ')
 # but this does (remember x:y:z slices from x to y-1 in steps of z)
 print( A[0:2:1,0:2:1] )
 
-
-# In[ ]:
-
-
 # This cell has the example shown in the book.
 
 # the full matrix
@@ -150,16 +94,6 @@ print(A)
 print('\n\nSubmatrix:\n')
 print(sub)
 
-
-# In[ ]:
-
-
-
-
-
-# # Some special matrices
-
-# In[ ]:
 
 
 ## create some matrices
@@ -206,16 +140,6 @@ plt.tight_layout()
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Some more details about special matrices
-
-# In[ ]:
-
 
 # matrix size parameters (called 'shape' in Python lingo)
 Mrows = 4 # shape 0
@@ -226,10 +150,6 @@ A = np.random.randn(Mrows,Ncols)
 
 # print out the matrix (rounding to facilitate visual inspection)
 np.round(A,3)
-
-
-# In[ ]:
-
 
 # Extract the triangular part of a dense matrix
 
@@ -245,10 +165,6 @@ print(np.triu(A))
 print('\n\nLower triangular:\n')
 print(np.tril(A))
 
-
-# In[ ]:
-
-
 # Diagonal
 
 # input a matrix to get the diagonal elements
@@ -261,19 +177,12 @@ v = np.arange(1,6)
 D = np.diag(v)
 print('\n\nInput a vector:\n',D)
 
-
-# In[ ]:
-
-
 # Identity and zeros matrices
 
 # Note that you only specify one input
 n = 4
 I = np.eye(n)
 print(f'The {n}x{n} identity matrix:\n',I)
-
-
-# In[ ]:
 
 
 # Zeros matrix
@@ -286,16 +195,6 @@ I = np.zeros((n,m))
 print(f'The {n}x{m} zeros matrix:\n',I)
 
 
-# In[ ]:
-
-
-
-
-
-# # Matrix addition
-
-# In[ ]:
-
 
 A = np.array([  [2,3,4],
                 [1,2,4] ])
@@ -306,23 +205,9 @@ B = np.array([  [ 0, 3,1],
 print(A+B)
 
 
-# In[ ]:
-
-
-
-
-
-# # Shifting a matrix
-
-# In[ ]:
-
 
 # Not shifting; broadcasting scalar addition
 3 + np.eye(2)
-
-
-# In[ ]:
-
 
 # This is shifting:
 
@@ -346,30 +231,10 @@ print('Shifting:')
 print( A + s*np.eye(len(A)) )
 
 
-# In[ ]:
-
-
-
-
-
-# # Scalar multiplication
-
-# In[ ]:
-
 
 print(A), print(' ')
 print(s*A)
 
-
-# In[ ]:
-
-
-
-
-
-# # Hadamard multiplication
-
-# In[ ]:
 
 
 # two random matrices
@@ -386,16 +251,6 @@ np.multiply(A,B)
 A@B
 
 
-# In[ ]:
-
-
-
-
-
-# # "Standard" matrix multiplication
-
-# In[ ]:
-
 
 # Create a few matrices
 A = np.random.randn(3,6)
@@ -408,10 +263,6 @@ print( np.dot(A,B).shape ) # same as above
 print( (B@C).shape )
 print( (A@C).shape )
 
-
-# In[ ]:
-
-
 # Note/reminder:
 
 # This is Hadamard (element-wise) multiplication:
@@ -423,16 +274,6 @@ print( np.dot(B,C.T) )
 # demonstration:
 # np.dot(B,C.T)-B@C.T
 
-
-# In[ ]:
-
-
-
-
-
-# # Geometry of matrix-vector multiplication
-
-# In[ ]:
 
 
 # some matrix
@@ -452,10 +293,6 @@ plt.grid()
 plt.savefig('Figure_05_05a.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
 # some matrix
 M  = np.array([ [2,3],[2,1] ])
 v  = np.array([ [1.5,1] ]).T # transposed into a column vector!
@@ -474,21 +311,7 @@ plt.savefig('Figure_05_05b.png',dpi=300)
 plt.show()
 
 
-# In[ ]:
 
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# # Transpose
-
-# In[ ]:
 
 
 # A matrix to transpose
@@ -507,21 +330,7 @@ print( A_T2 ), print(' ')
 print( A_TT )
 
 
-# In[ ]:
 
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 1
-
-# In[ ]:
 
 
 # indexing
@@ -534,12 +343,6 @@ ri = 1
 ci = 3
 
 print(f'The matrix element at index ({ri+1},{ci+1}) is {A[ri,ci]}')
-
-
-# # Exercise 2
-
-# In[ ]:
-
 
 # Create the matrix
 C = np.arange(100).reshape((10,10))
@@ -575,13 +378,6 @@ for (j,i),num in np.ndenumerate(C_1):
 plt.savefig('Figure_05_06.png',dpi=300)
 plt.show()
 
-
-# # Exercise 3
-# 
-
-# In[ ]:
-
-
 # cut it into blocks
 C_1 = C[0:5:1,0:5:1]
 C_2 = C[0:5:1,5:10:1]
@@ -616,12 +412,6 @@ for (j,i),num in np.ndenumerate(newMatrix):
 plt.savefig('Figure_05_07.png',dpi=300)
 plt.show()
 
-
-# # Exercise 4
-
-# In[ ]:
-
-
 def addMatrices(A,B):
 
   # check that both matrices have the same size
@@ -646,11 +436,6 @@ M2 = np.ones((6,4))
 addMatrices(M1,M2)
 
 
-# # Exercise 5
-
-# In[ ]:
-
-
 # create random matrices and a scalar
 A = np.random.randn(3,4)
 B = np.random.randn(3,4)
@@ -668,16 +453,6 @@ expr3 = A*s + B*s
 # print out, rounded to 8 digits after the decimal point
 print(np.round(2*expr1 - expr2 - expr3,8))
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 6
-
-# In[ ]:
 
 
 # generate two matrices
@@ -701,16 +476,6 @@ C2 = A@B
 np.isclose( C1,C2 )
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 7
-
-# In[ ]:
-
 
 # Create the matrices
 L = np.random.randn(2,6)
@@ -727,16 +492,6 @@ res3 = E.T @ V.T @ I.T @ L.T
 print(res1-res3)
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 8
-
-# In[ ]:
-
 
 def isMatrixSymmetric(S):
   
@@ -752,10 +507,6 @@ def isMatrixSymmetric(S):
 # note: There are many other ways you could solve this. 
 # If you want to explore different methods, consider np.all() or np.isclose()
 
-
-# In[ ]:
-
-
 # create symmetric and nonsymmetric matrices
 A = np.random.randn(4,4)
 AtA = A.T@A
@@ -764,16 +515,6 @@ AtA = A.T@A
 print(isMatrixSymmetric(A))
 print(isMatrixSymmetric(AtA))
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 9
-
-# In[ ]:
 
 
 # create symmetric and nonsymmetric matrices
@@ -784,16 +525,6 @@ AtA = (A + A.T) / 2 # additive method!
 print(isMatrixSymmetric(A))
 print(isMatrixSymmetric(AtA))
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 10
-
-# In[ ]:
 
 
 import plotly.graph_objects as go
@@ -821,16 +552,6 @@ for i in range(len(scalars)):
 fig = go.Figure( data=[go.Scatter3d(x=points[:,0], y=points[:,1], z=points[:,2], mode='markers')])
 fig.show()
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 11
-
-# In[ ]:
 
 
 n = 4
@@ -871,16 +592,6 @@ print('Pre- and post-multiply by sqrt-diagonal:')
 print(both)
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 12
-
-# In[ ]:
-
 
 # Create two diagonal matrices
 N = 5
@@ -893,15 +604,6 @@ standard = D1@D2
 
 # compare them
 hadamard - standard
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
 
 
 

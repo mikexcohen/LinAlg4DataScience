@@ -1,36 +1,12 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # Practical Linear Algebra for Data Science
-# ## Mike X Cohen (sincxpress.com)
-# ### https://www.oreilly.com/library/view/practical-linear-algebra/9781098120603/
-# 
-# #### Code for chapter 12
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
 import numpy as np
 import matplotlib.pyplot as plt
 
 import pandas as pd
 
 # NOTE: these lines define global figure properties used for publication.
-from IPython import display
-display.set_matplotlib_formats('svg') # display figures in vector format
+import matplotlib_inline.backend_inline
+matplotlib_inline.backend_inline.set_matplotlib_formats('svg') # display figures in vector format
 plt.rcParams.update({'font.size':14}) # set global font size
-
-
-# # Korean bike rental regression
-
-# In[ ]:
-
 
 # Data citation: Sathishkumar V E, Jangwoo Park, and Yongyun Cho. 'Using data mining techniques for bike sharing demand 
 #                prediction in metropolitan city.' Computer Communications, Vol.153, pp.353-366, March, 2020
@@ -43,10 +19,6 @@ data = pd.read_csv(url,sep=',',encoding='unicode_escape')
 # let's have a look
 data
 
-
-# In[ ]:
-
-
 # show some data in scatter plots
 
 data.plot(x='Date',y='Rented Bike Count',color='k',marker='.',linestyle='none',
@@ -54,25 +26,13 @@ data.plot(x='Date',y='Rented Bike Count',color='k',marker='.',linestyle='none',
 plt.savefig('Figure_12_1a.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
 data.plot(x='Date',y='Rainfall(mm)',color='k',marker='.',linestyle='none',
           figsize=(12,6),ylabel='Rainfall (mm)');
 plt.savefig('Figure_12_1b.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
 # Examine the correlation matrix
 data.corr()
-
-
-# In[ ]:
-
 
 ### show the correlation matrix in an image
 
@@ -96,17 +56,9 @@ for (j,i),num in np.ndenumerate(R.values):
 plt.savefig('Figure_12_02.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
 # binarize the seasons
 data.replace(['Spring','Summer', 'Autumn','Winter'],[1,1,0,0], inplace=True)
 data
-
-
-# In[ ]:
-
 
 # Create a design matrix
 desmat = data[['Rainfall(mm)','Seasons']].to_numpy()
@@ -128,10 +80,6 @@ plt.xticks(range(3),labels=['Rainfall','Season','Intercept'])
 plt.savefig('Figure_12_3a.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
 # plot the data
 plt.figure(figsize=(5,8))
 
@@ -145,17 +93,9 @@ plt.legend()
 plt.savefig('Figure_12_3b.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
 # run the regression
 beta = np.linalg.lstsq(desmat,y,rcond=None)
 beta[0]
-
-
-# In[ ]:
-
 
 ## plot some results.
 
@@ -177,12 +117,6 @@ plt.title(f'Model fit ($R^2$): {modelfit:.3f}')
 plt.savefig('Figure_12_04.png',dpi=300)
 plt.show()
 
-
-# # Using statsmodels
-
-# In[ ]:
-
-
 import statsmodels.api as sm
 
 # extract data (staying with pandas dataframes)
@@ -194,16 +128,6 @@ desmat_df = sm.add_constant(desmat_df) # must explicitly add an intercept (const
 model = sm.OLS(obsdata_df,desmat_df).fit()
 print( model.summary() )
 
-
-# In[ ]:
-
-
-
-
-
-# # Polynomial regression
-
-# In[ ]:
 
 
 x = np.linspace(-2,2,40)
@@ -234,14 +158,6 @@ plt.savefig('Figure_12_05.png',dpi=300)
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
 
 # the data
 year       = [1534, 1737, 1803, 1928, 1960, 1975, 1987, 2023, 2057, 2100 ]
@@ -264,10 +180,6 @@ plt.show()
 #    Published online at OurWorldInData.org. Retrieved from: 'https://ourworldindata.org/world-population-growth'
 #    https://ourworldindata.org/uploads/2019/12/World-population-doubling-time-1.png
 
-
-# In[ ]:
-
-
 # design matrix for a 3rd-order polynomial
 X = np.zeros((N,4))
 
@@ -278,10 +190,6 @@ for i in range(4):
 
 # converted to ints for your viewing pleasure
 print(X.astype(int))
-
-
-# In[ ]:
-
 
 # compute the regression coefficients
 beta = np.linalg.lstsq(X,doubleTime, rcond=None)
@@ -301,10 +209,6 @@ plt.ylabel('Doubling time (years)')
 plt.savefig('Figure_12_07.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
 # Now using polyfit
 
 beta = np.polyfit(year,doubleTime,3)
@@ -322,31 +226,13 @@ plt.ylabel('Doubling time (years)')
 plt.show()
 
 
-# In[ ]:
 
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 1 (Bike rental exercises)
-
-# In[ ]:
 
 
 # re-create design matrix and data vector
 desmat = data[['Rainfall(mm)','Seasons']].to_numpy()
 desmat = np.append(desmat,np.ones((desmat.shape[0],1)),axis=1)
 y = data[['Rented Bike Count']].to_numpy()
-
-
-# In[ ]:
-
 
 # repeat excluding zeros in rainfall
 
@@ -367,10 +253,6 @@ plt.ylabel('Bikes rented')
 plt.title('Data only on rainy days')
 plt.legend()
 plt.show()
-
-
-# In[ ]:
-
 
 # run the regression (using np's least-squares)
 beta_norain = np.linalg.lstsq(desmat_norain,y_norain,rcond=None)
@@ -398,16 +280,6 @@ plt.title(f'Model fit ($R^2$): {modelfit:.3f}')
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 2 (Bike rental exercises)
-
-# In[ ]:
-
 
 # Create a design matrix
 desmat = data[['Rainfall(mm)','Temperature(°C)']].to_numpy()
@@ -429,16 +301,6 @@ plt.title(f'Model fit ($R^2$): {modelfit:.3f}')
 plt.savefig('Figure_12_09.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 3 (multicollinearity)
-
-# In[ ]:
 
 
 # some random linear combination
@@ -462,16 +324,8 @@ print(f'\nDesign matrix correlation matrix:')
 print(np.round(np.corrcoef(desmatM.T),5))
 np.seterr(**oSettings); # reset the error handling
 
-
-# In[ ]:
-
-
 # A nicer way to print out the correlation matrix using pandas
 pd.DataFrame(desmatM,columns=['Rain','Temp','Int','Combo']).corr()
-
-
-# In[ ]:
-
 
 ### using left-inverse
 
@@ -487,10 +341,6 @@ yHat  = desmatM@beta1
 modelfit1 = np.corrcoef(y.T,yHat.T)[0,1]**2
 print(modelfit1)
 
-
-# In[ ]:
-
-
 ### using numpy's least-squares
 
 # fit the model
@@ -500,10 +350,6 @@ yHat  = desmatM@beta2[0]
 # model fit to data (R^2)
 modelfit2 = np.corrcoef(y.T,yHat.T)[0,1]**2
 print(modelfit2)
-
-
-# In[ ]:
-
 
 ### using statsmodels
 
@@ -517,10 +363,6 @@ model = sm.OLS(obsdata_df,desmat_df).fit()
 
 beta3 = model.params.values
 modelfit3 = model.rsquared
-
-
-# In[ ]:
-
 
 # print all to compare
 
@@ -536,16 +378,6 @@ print(f'  np lstsqr   : {np.round(beta2[0].T,3)}')
 print(f'  statsmodels : {np.round(beta3.T,3)}')
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 4 (regularization)
-
-# In[ ]:
-
 
 # regularization proportion
 gamma = .01
@@ -559,10 +391,6 @@ leftinv = np.linalg.inv(desmatM.T@desmatM + gamnorm*np.eye(desmatM.shape[1]))
 # print results
 print(f"inv(X'X + {gamma}*I) size: {leftinv.shape}")
 print(f"inv(X'X + {gamma}*I) rank: {np.linalg.matrix_rank(leftinv)}")
-
-
-# In[ ]:
-
 
 ### Note about this code:
 # Exercise 7 of chapter 13 relies on this code. Use the following toggle when you're on chapter 13 :)
@@ -620,16 +448,6 @@ plt.savefig('Figure_12_10.png',dpi=300)
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 5 (polynomial)
-
-# In[ ]:
-
 
 # plot it
 _,axs = plt.subplots(2,5,figsize=(14,5))
@@ -651,16 +469,6 @@ plt.savefig('Figure_12_11.png',dpi=300)
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 6 (grid search)
-
-# In[ ]:
-
 
 # NOTE: data and model from the previous chapter
 numcourses = [13,4,12,3,14,13,12,9,11,7,13,11,9,2,5,7,10,0,9,7]
@@ -669,10 +477,6 @@ happiness  = [70,25,54,21,80,68,84,62,57,40,60,64,45,38,51,52,58,21,75,70]
 # design matrix
 X = np.hstack((np.ones((20,1)),np.array(numcourses,ndmin=2).T))
 beta = np.linalg.lstsq(X,happiness,rcond=None)[0]
-
-
-# In[ ]:
-
 
 # the number of steps for each parameter
 gridResolution = 100
@@ -706,7 +510,7 @@ empIntercept,empSlope = intercepts[i], slopes[j]
 plt.figure(figsize=(6,6))
 plt.imshow(SSEs,vmin=2000,vmax=3000,
            extent=[slopes[0],slopes[-1],intercepts[0],intercepts[-1]],
-           origin='top',aspect='auto',cmap='gray')
+           origin='lower',aspect='auto',cmap='gray')
 plt.plot(empSlope,empIntercept,'o',color=[1,.4,.4],markersize=12,label='Grid search minimum')
 plt.plot(beta[1],beta[0],'x',color=[.4,.7,1],markeredgewidth=4,markersize=10,label='Analytic solution')
 plt.colorbar()
@@ -724,16 +528,6 @@ print(' ')
 print('Empirical result: ')
 print(f'   Intercept: {empIntercept:.2f}, slope: {empSlope:.2f}')
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 7 (grid search)
-
-# In[ ]:
 
 
 # the number of steps for each parameter
@@ -771,7 +565,7 @@ empIntercept,empSlope = intercepts[i], slopes[j]
 plt.figure(figsize=(6,6))
 plt.imshow(r2,vmin=0,vmax=.5,
            extent=[slopes[0],slopes[-1],intercepts[0],intercepts[-1]],
-           origin='top',aspect='auto',cmap='gray')
+           origin='lower',aspect='auto',cmap='gray')
 plt.plot(empSlope,empIntercept,'o',color=[1,.4,.4],markersize=12,label='Grid search minimum')
 plt.plot(beta[1],beta[0],'x',color=[.4,.7,1],markeredgewidth=4,markersize=10,label='Analytic solution')
 plt.colorbar()
@@ -787,10 +581,6 @@ print(f'   Intercept: {beta[0]:.2f}, slope: {beta[1]:.2f}')
 print(' ')
 print('Empirical result: ')
 print(f'   Intercept: {empIntercept:.2f}, slope: {empSlope:.2f}')
-
-
-# In[ ]:
-
 
 # Why doesn't this approach work? 
 # Let's start by plotting predicted data for different parameters.
@@ -818,10 +608,6 @@ plt.show()
 # predicted data after mean-centering, i.e., the way a correlation would see the data. 
 # Move on to the next cell...
 
-
-# In[ ]:
-
-
 # The plots here are the same as above, but all data have been mean-centered.
 
 _,axs = plt.subplots(1,2,figsize=(14,5))
@@ -848,10 +634,5 @@ plt.show()
 # The conclusion of this investigation is that R^2 is not a useful model fit metric in this example.
 # Of course, that doesn't mean it never a useful model; instead, it means that you need to think
 # carefully about the metrics you use to evaluate model fit to data.
-
-
-# In[ ]:
-
-
 
 

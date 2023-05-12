@@ -1,33 +1,11 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # Practical Linear Algebra for Data Science
-# ## Mike X Cohen (sincxpress.com)
-# ### https://www.oreilly.com/library/view/practical-linear-algebra/9781098120603/
-# 
-# #### Code for chapter 14
-
-# In[ ]:
-
-
 import numpy as np
 import matplotlib.pyplot as plt
 
 # NOTE: these lines define global figure properties used for publication.
-from IPython import display
-display.set_matplotlib_formats('svg') # display figures in vector format
+import matplotlib_inline.backend_inline
+matplotlib_inline.backend_inline.set_matplotlib_formats('svg') # display figures in vector format
 plt.rcParams.update({'font.size':14}) # set global font size
 
-
-# In[ ]:
-
-
-
-
-
-# # The SVD
-
-# In[ ]:
 
 
 A = np.random.randn(4,6)
@@ -60,16 +38,6 @@ plt.savefig('Figure_14_02.png',dpi=300)
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Symmetric matrix
-
-# In[ ]:
-
 
 A = np.random.randn(5,5)
 A = A.T@A
@@ -82,16 +50,6 @@ sinvals = np.linalg.svd(A)[1]
 print(np.sort(eigvals))
 print(np.sort(sinvals))
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 1
-
-# In[ ]:
 
 
 # create a symmetric matrix
@@ -127,15 +85,6 @@ print(' ')
 print(np.round(U+evecs,10)) # add for sign indeterminancy
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 2
-
-# In[ ]:
 
 
 # sizes (try tall and wide)
@@ -152,16 +101,6 @@ print(f'Size of U:  {U.shape}')
 print(f"Size of V': {Vt.shape}")
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 3
-
-# In[ ]:
-
 
 # The proof that |Uw|=|w| comes from expanding the vector magnitude to the dot product:
 # |Uw|^2 = (Uw)'(Uw) = w'U'U'w = w'Iw = w'w = |w|^2
@@ -175,16 +114,6 @@ w = np.random.randn(5,1)
 print( np.linalg.norm(U@w) )
 print( np.linalg.norm(  w) )
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 4
-
-# In[ ]:
 
 
 # create a tall matrix with specified condition number
@@ -227,16 +156,6 @@ plt.tight_layout()
 plt.savefig('Figure_14_04.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 5
-
-# In[ ]:
 
 
 # create the matrix
@@ -292,10 +211,6 @@ plt.title('Scree plot')
 plt.savefig('Figure_14_05b.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
 ## now show the first N "layers" separately and summed
 
 numLayers = 4
@@ -327,16 +242,6 @@ plt.savefig('Figure_14_05c.png',dpi=300)
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 6
-
-# In[ ]:
-
 
 # singular matrix
 A = np.random.randn(5,3) @ np.random.randn(3,5)
@@ -363,23 +268,9 @@ ApinvNp = np.linalg.pinv(A)
 
 print(np.round( ApinvNp - Apinv ,5))
 
-
-# In[ ]:
-
-
 # check the source code for pinv
-get_ipython().run_line_magic('pinfo2', 'np.linalg.pinv()')
+??np.linalg.pinv()
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 7
-
-# In[ ]:
 
 
 # left-inverse
@@ -394,10 +285,6 @@ Apinv = np.linalg.pinv(A)
 # compare
 print(np.round( Linv - Apinv ,5))
 
-
-# In[ ]:
-
-
 # right-inverse
 A = np.random.randn(4,6)
 
@@ -410,16 +297,6 @@ Apinv = np.linalg.pinv(A)
 # compare
 print(np.round( Rinv - Apinv ,5))
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 8
-
-# In[ ]:
 
 
 # the matrix (from chapter 12)
@@ -438,19 +315,11 @@ RHS = l*v
 print(LHS.T)
 print(RHS.T)
 
-
-# In[ ]:
-
-
 # pinv(v)
 vPinv = np.linalg.pinv(v)
 
 # check
 vPinv@v
-
-
-# In[ ]:
-
 
 # first equation
 LHS = vPinv @ M @ v
@@ -460,10 +329,6 @@ RHS = l * vPinv @ v
 print(LHS)
 print(RHS)
 
-
-# In[ ]:
-
-
 # second equation
 LHS = M @ v @ vPinv
 RHS = l * v @ vPinv
@@ -471,10 +336,5 @@ RHS = l * v @ vPinv
 # these results are matrices
 print(LHS), print(' ')
 print(RHS)
-
-
-# In[ ]:
-
-
 
 

@@ -1,33 +1,11 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # Practical Linear Algebra for Data Science
-# ## Mike X Cohen (sincxpress.com)
-# ### https://www.oreilly.com/library/view/practical-linear-algebra/9781098120603/
-# 
-# #### Code for chapter 3
-
-# In[ ]:
-
-
 import numpy as np
 import matplotlib.pyplot as plt
 
 # NOTE: these lines define global figure properties used for publication.
-from IPython import display
-display.set_matplotlib_formats('svg') # print figures in svg format
+import matplotlib_inline.backend_inline
+matplotlib_inline.backend_inline.set_matplotlib_formats('svg') # print figures in svg format
 plt.rcParams.update({'font.size':14}) # set global font size
 
-
-# In[ ]:
-
-
-
-
-
-# # Linear weighted combinations
-
-# In[ ]:
 
 
 # the scalars
@@ -44,15 +22,6 @@ v3 = np.array([1,3,2])
 l1*v1 + l2*v2 + l3*v3
 
 
-# In[ ]:
-
-
-
-
-
-# # Basis vectors and points
-
-# In[ ]:
 
 
 # points (in Cartesian coordinates)
@@ -82,18 +51,6 @@ plt.savefig('Figure_03_04.png',dpi=300)
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercises
-
-# # Exercise 1
-
-# In[ ]:
-
 
 ## Note: Make sure you run the code earlier to create variables l1, l2, etc.
 
@@ -112,16 +69,6 @@ for s,v in zip(scalars,vectors):
 linCombo
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 2
-
-# In[ ]:
-
 
 # Whether it works or throws an error depends on how you set up the code.
 # Using zip() as above works, because zip() will use only the minimum-matching items.
@@ -136,16 +83,6 @@ linCombo = np.zeros(len(v1))
 for i in range(len(scalars)):
   linCombo += scalars[i]*vectors[i]
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 3
-
-# In[ ]:
 
 
 # the vector set (just one vector)
@@ -179,10 +116,6 @@ plt.text(-4.5,4.5,'A)',fontweight='bold',fontsize=18)
 plt.savefig('Figure_03_07a.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
 import plotly.graph_objects as go
 
 # two vectors in R3
@@ -214,10 +147,5 @@ fig = go.Figure( data=[go.Scatter3d(x=points[:,0], y=points[:,1], z=points[:,2],
 fig.update_layout(margin=dict(l=0,r=0,b=0,t=0))
 plt.savefig('Figure_03_07b.png',dpi=300)
 fig.show()
-
-
-# In[ ]:
-
-
 
 

@@ -1,21 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # Practical Linear Algebra for Data Science
-# ## Mike X Cohen (sincxpress.com)
-# ### https://www.oreilly.com/library/view/practical-linear-algebra/9781098120603/
-# 
-# #### Code for chapter 11
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -26,24 +8,12 @@ import sympy as sym
 
 
 # NOTE: these lines define global figure properties used for publication.
-from IPython import display
-display.set_matplotlib_formats('svg') # display figures in vector format
+import matplotlib_inline.backend_inline
+matplotlib_inline.backend_inline.set_matplotlib_formats('svg') # display figures in vector format
 plt.rcParams.update({'font.size':14}) # set global font size
 
 
-# In[ ]:
 
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
 
 
 ## this code creates figure 2
@@ -70,16 +40,6 @@ plt.savefig('Figure_11_02.png',dpi=300)
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Example in fake data
-
-# In[ ]:
-
 
 numcourses = [13,4,12,3,14,13,12,9,11,7,13,11,9,2,5,7,10,0,9,7]
 happiness  = [70,25,54,21,80,68,84,62,57,40,60,64,45,38,51,52,58,21,75,70]
@@ -96,10 +56,6 @@ plt.xticks(range(0,15,2))
 plt.savefig('Figure_11_03.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
 # Build a statistical model
 
 # design matrix as a column vector
@@ -112,10 +68,6 @@ X_leftinv = np.linalg.inv(X.T@X) @ X.T
 # solve for the coefficients
 beta = X_leftinv @ happiness
 beta
-
-
-# In[ ]:
-
 
 # let's plot it!
 
@@ -143,10 +95,6 @@ plt.title(f'SSE = {np.sum((pred_happiness-happiness)**2):.2f}')
 plt.savefig('Figure_11_04.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
 # Build a statistical model with an intercept
 
 # design matrix as a column vector
@@ -159,10 +107,6 @@ X_leftinv = np.linalg.inv(X.T@X) @ X.T
 # solve for the coefficients
 beta = X_leftinv @ happiness
 beta
-
-
-# In[ ]:
-
 
 # let's plot it!
 
@@ -191,16 +135,6 @@ plt.savefig('Figure_11_05.png',dpi=300)
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 1
-
-# In[ ]:
-
 
 # compute residual
 res = happiness-pred_happiness
@@ -221,23 +155,9 @@ plt.title(f'r = {np.corrcoef(pred_happiness,res)[0,1]:.20f}')
 plt.savefig('Figure_11_06.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
 # correlation is smaller because we're dividing by the vector norms, e.g.,
 np.linalg.norm(res)
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 2
-
-# In[ ]:
 
 
 # the residual is orthogonal to the entire column space of the design matrix.
@@ -259,16 +179,6 @@ nullspaceAugment = np.hstack( (nullspace,res.reshape(-1,1)) )
 print(f'dim(  N(X)    ) = {np.linalg.matrix_rank(nullspace)}')
 print(f'dim( [N(X)|r] ) = {np.linalg.matrix_rank(nullspaceAugment)}')
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 3
-
-# In[ ]:
 
 
 ### Uncomment these lines to use random data
@@ -306,10 +216,6 @@ print(np.round(beta2,3)), print(' ')
 print('Betas from QR with back-substitution: ')
 print(np.round(np.array(beta3.T).astype(float),3)) # transposed to facilitate visual inspection
 
-
-# In[ ]:
-
-
 # show the matrices
 print('Matrix R:')
 print(np.round(R,3)) # note that it's upper-triangular (as you know!)
@@ -322,16 +228,6 @@ print(' ')
 print("Matrix RREF(R|Q'y):")
 print(np.round(np.array(Raug_r).astype(float),3)) # convert to numpy floats
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 4
-
-# In[ ]:
 
 
 # happiness with outliers due to typos (oops!)
@@ -376,16 +272,6 @@ plt.tight_layout()
 plt.savefig('Figure_11_07.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 5
-
-# In[ ]:
 
 
 # matrix size
@@ -437,10 +323,6 @@ plt.tight_layout()
 plt.savefig('Figure_11_08.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
 # show they are equivalent 
 # Note the relatively large rounding errors when comparing to inv() -- the left-inverse
 #   least-squares method is not a numerically stable method!
@@ -453,10 +335,5 @@ print(Xinv1-Xinv3)
 print(' ')
 
 print(Xinv2-Xinv3)
-
-
-# In[ ]:
-
-
 
 

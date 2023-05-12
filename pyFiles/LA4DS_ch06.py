@@ -1,15 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # Practical Linear Algebra for Data Science
-# ## Mike X Cohen (sincxpress.com)
-# ### https://www.oreilly.com/library/view/practical-linear-algebra/9781098120603/
-# 
-# #### Code for chapter 6
-
-# In[ ]:
-
-
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -21,20 +9,10 @@ from scipy.linalg import toeplitz
 
 
 # NOTE: these lines define global figure properties used for publication.
-from IPython import display
-display.set_matplotlib_formats('svg') # print figures in svg format
+import matplotlib_inline.backend_inline
+matplotlib_inline.backend_inline.set_matplotlib_formats('svg') # print figures in svg format
 plt.rcParams.update({'font.size':14}) # set global font size
 
-
-# In[ ]:
-
-
-
-
-
-# # Column space
-
-# In[ ]:
 
 
 # some matrix (just one lonely little column)
@@ -58,10 +36,6 @@ plt.legend()
 plt.grid()
 plt.savefig('Figure_06_01.png',dpi=300)
 plt.show()
-
-
-# In[ ]:
-
 
 # some matrix
 A1  = np.array([ [1,1],[3,2] ])
@@ -95,16 +69,6 @@ plt.savefig('Figure_06_02.png',dpi=300)
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Now for R3
-
-# In[ ]:
-
 
 # a matrix with two columns in R3
 A = np.array( [ [3,0],
@@ -130,16 +94,6 @@ plt.savefig('Figure_06_03.png',dpi=300)
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Null spaces
-
-# In[ ]:
-
 
 # The two matrices
 A = np.array([ [1,-1],[-2,2] ])
@@ -150,10 +104,6 @@ print( scipy.linalg.null_space(A) )
 print(' ')
 
 print( scipy.linalg.null_space(B) )
-
-
-# In[ ]:
-
 
 # Using matrix A above
 
@@ -192,21 +142,7 @@ plt.savefig('Figure_06_04.png',dpi=300)
 plt.show()
 
 
-# In[ ]:
 
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 1
-
-# In[ ]:
 
 
 # experiment simulations
@@ -239,16 +175,6 @@ plt.show()
 print(matrixNorms[0,:])
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercies 2
-
-# In[ ]:
-
 
 # Function to compute Euclidean distance
 
@@ -259,10 +185,6 @@ def EuclideanDistance(M1,M2):
 
   # matrix distance
   return np.sqrt(np.sum(D**2))
-
-
-# In[ ]:
-
 
 # optimization code
 
@@ -283,10 +205,6 @@ while EuclideanDistance(s*A,s*B)>1:
 print(f'Number of iterations: {numIters-1}')
 print(f'Final value of scalar: {s/.9:.3f}')
 print(f'Final Euclidean distance: {EuclideanDistance(s/.9*A,s/.9*B):.3f}')
-
-
-# In[ ]:
-
 
 # The code below isn't part of the exercise, but I was curious to repeat the optimization
 # 1000 times to see the distribution of numIters
@@ -309,16 +227,6 @@ plt.xlabel('Number of iterations')
 plt.ylabel('Count');
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 3
-
-# In[ ]:
-
 
 # Create a matrix
 M = 50
@@ -333,16 +241,6 @@ norm2 = np.sqrt(np.sum(A**2))
 # if they're equal, their difference should be (very close to) zero
 norm1-norm2
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 4
-
-# In[ ]:
 
 
 # size of the matrix
@@ -393,16 +291,6 @@ plt.savefig('Figure_06_06.png',dpi=300)
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 5
-
-# In[ ]:
-
 
 # Make a matrix with specified size and rank
 
@@ -416,16 +304,6 @@ print(A.shape)
 print(np.linalg.matrix_rank(A))
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 6
-
-# In[ ]:
-
 
 # summed matrix has rank-0
 
@@ -435,10 +313,6 @@ C = A+B
 
 # print out their ranks
 np.linalg.matrix_rank(A),np.linalg.matrix_rank(B),np.linalg.matrix_rank(C)
-
-
-# In[ ]:
-
 
 # summed matrix has rank-1
 
@@ -450,10 +324,6 @@ C = A+B
 # print out their ranks
 np.linalg.matrix_rank(A),np.linalg.matrix_rank(B),np.linalg.matrix_rank(C)
 
-
-# In[ ]:
-
-
 # summed matrix has rank-2
 
 A = np.diag([1,0,0,0,0])
@@ -463,10 +333,6 @@ C = A+B
 # print out their ranks
 np.linalg.matrix_rank(A),np.linalg.matrix_rank(B),np.linalg.matrix_rank(C)
 
-
-# In[ ]:
-
-
 # random matrices have maximum possible rank!
 A = np.random.randn(5,1) @ np.random.randn(1,5)
 B = np.random.randn(5,1) @ np.random.randn(1,5)
@@ -475,16 +341,6 @@ C = A+B
 # print out their ranks
 np.linalg.matrix_rank(A),np.linalg.matrix_rank(B),np.linalg.matrix_rank(C)
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 7
-
-# In[ ]:
 
 
 # The function
@@ -535,16 +391,6 @@ plt.tight_layout()
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 8
-
-# In[ ]:
-
 
 # matrix sizes and rank
 M = 15
@@ -565,16 +411,6 @@ print(
     np.linalg.matrix_rank(AAt)
 )
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 9
-
-# In[ ]:
 
 
 # function to run algorithm
@@ -599,16 +435,6 @@ v = np.random.randn(4,1)
 # test!
 is_V_inColA(A,v)
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 10
-
-# In[ ]:
 
 
 # matrix sizes
@@ -645,10 +471,5 @@ plt.ylabel('Log determinant')
 plt.title('Empirical determinants of singular matrices')
 plt.savefig('Figure_06_10.png',dpi=300)
 plt.show()
-
-
-# In[ ]:
-
-
 
 

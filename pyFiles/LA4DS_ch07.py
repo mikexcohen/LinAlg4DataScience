@@ -1,15 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # Practical Linear Algebra for Data Science
-# ## Mike X Cohen (sincxpress.com)
-# ### https://www.oreilly.com/library/view/practical-linear-algebra/9781098120603/
-# 
-# #### Code for chapter 7
-
-# In[ ]:
-
-
 # import libraries
 import numpy as np
 import matplotlib.pyplot as plt
@@ -30,20 +18,10 @@ import pandas as pd
 
 
 # NOTE: these lines define global figure properties used for publication.
-from IPython import display
-display.set_matplotlib_formats('svg') # display figures in vector format
+import matplotlib_inline.backend_inline
+matplotlib_inline.backend_inline.set_matplotlib_formats('svg') # display figures in vector format
 plt.rcParams.update({'font.size':14}) # set global font size
 
-
-# In[ ]:
-
-
-
-
-
-# # Covariance matrix
-
-# In[ ]:
 
 
 # information about the data
@@ -54,10 +32,6 @@ plt.rcParams.update({'font.size':14}) # set global font size
 
 # dataset citation (see also above website for more):
 # Redmond, M. A. and A. Baveja: A Data-Driven Software Tool for Enabling Cooperative Information Sharing Among Police Departments. European Journal of Operational Research 141 (2002) 660-678.
-
-
-# In[ ]:
-
 
 # read the data into a pandas dataframe
 url  = 'https://archive.ics.uci.edu/ml/machine-learning-databases/communities/communities.data'
@@ -82,20 +56,12 @@ data.columns = [ 'state', 'county', 'community', 'communityname', 'fold', 'popul
 # have a look at the data
 data
 
-
-# In[ ]:
-
-
 # extract only the numeric data
 numberDataset = data._get_numeric_data()
 
 # drop a few additional columns, and convert to a numpy array
 dataMat = numberDataset.drop(['state','fold'],axis=1).values
 dataMat
-
-
-# In[ ]:
-
 
 # compute the mean of each data feature
 datamean = np.mean(dataMat,axis=0)
@@ -122,16 +88,6 @@ plt.title('Data covariance matrix')
 plt.savefig('Figure_07_01.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
-
-
-
-# # Transformation matrices
-
-# In[ ]:
 
 
 # Pure rotation matrix
@@ -168,16 +124,6 @@ plt.title(f'Rotation by {np.rad2deg(th):.0f} degrees.')
 plt.savefig('Figure_07_02.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
-
-
-
-# # Animating transformations
-
-# In[ ]:
 
 
 # function to update the axis on each iteration
@@ -219,16 +165,6 @@ phi = np.linspace(-1,1-1/40,40)**2
 animation.FuncAnimation(fig, aframe, phi, interval=100, repeat=True)
 
 
-# In[ ]:
-
-
-
-
-
-# # Image convolution
-
-# In[ ]:
-
 
 # image
 imgN  = 20
@@ -239,10 +175,6 @@ kernelN = 7
 Y,X     = np.meshgrid(np.linspace(-3,3,kernelN),np.linspace(-3,3,kernelN))
 kernel  = np.exp( -(X**2+Y**2)/7 )
 kernel  = kernel / np.sum(kernel) # normalize
-
-
-# In[ ]:
-
 
 # now for the convolution
 halfKr = kernelN//2
@@ -269,16 +201,8 @@ for rowi in range(halfKr,imgN+halfKr):
 # trim off edges
 convoutput = convoutput[halfKr:-halfKr:1,halfKr:-halfKr:1]
 
-
-# In[ ]:
-
-
 # using scipy
 convoutput2 = convolve2d(image,kernel,mode='same')
-
-
-# In[ ]:
-
 
 fig,ax = plt.subplots(2,2,figsize=(8,8))
 
@@ -300,14 +224,6 @@ plt.savefig('Figure_07_04b.png',dpi=300)
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
 
 # read a pic from the web
 bathtub = io.imread('https://upload.wikimedia.org/wikipedia/commons/6/61/De_nieuwe_vleugel_van_het_Stedelijk_Museum_Amsterdam.jpg')
@@ -327,10 +243,6 @@ bathtub2d = color.rgb2gray(bathtub)
 # check the size again
 print(bathtub2d.shape)
 
-
-# In[ ]:
-
-
 # convolution kernel
 kernelN = 29 # a bit bigger than in the previous example... feel free to change this parameter!
 Y,X     = np.meshgrid(np.linspace(-3,3,kernelN),np.linspace(-3,3,kernelN))
@@ -346,16 +258,6 @@ plt.imshow(smooth_bathtub,cmap='gray')
 plt.savefig('Figure_07_05b.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 1
-
-# In[ ]:
 
 
 # Diagonal matrix of inverse standard deviations
@@ -386,10 +288,6 @@ plt.tight_layout()
 plt.savefig('Figure_07_06.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
 # a bit of code to explore specific pairs of correlations
 
 # here list two indices into the correlation matrix (row, col)
@@ -398,16 +296,6 @@ i,j = 43,17
 # the printed tuple will show the correlation and the pairs of variables
 corrMat[i,j], data.columns[i], data.columns[j]
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 2
-
-# In[ ]:
 
 
 # numpy's correlation function (note transposing the matrix!)
@@ -433,28 +321,10 @@ plt.tight_layout()
 plt.savefig('Figure_07_07.png',dpi=300)
 plt.show()
 
+??np.corrcoef
 
-# In[ ]:
+??np.cov
 
-
-get_ipython().run_line_magic('pinfo2', 'np.corrcoef')
-
-
-# In[ ]:
-
-
-get_ipython().run_line_magic('pinfo2', 'np.cov')
-
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 3
-
-# In[ ]:
 
 
 # Transformation matrix
@@ -486,16 +356,6 @@ plt.savefig('Figure_07_08.png',dpi=300)
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 4
-
-# In[ ]:
-
 
 # function to draw the plots
 def aframe(ph):
@@ -518,10 +378,6 @@ def aframe(ph):
   # export the plot handles
   return (plth1,plth2)
 
-
-# In[ ]:
-
-
 # define XY points
 th = np.linspace(0,2*np.pi,100) # th = theta (angles)
 Y1 = np.vstack((th,np.cos(th)))
@@ -541,16 +397,6 @@ phi = 1-np.linspace(-1,1-1/40,40)**2
 animation.FuncAnimation(fig, aframe, phi, interval=50, repeat=True)
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 5
-
-# In[ ]:
-
 
 # initialize smoothed image
 smooth_bathtub = np.zeros(bathtub.shape)
@@ -564,17 +410,9 @@ fig = plt.figure(figsize=(10,6))
 plt.imshow(smooth_bathtub.astype(np.uint8))
 plt.show()
 
-
-# In[ ]:
-
-
 # check data types
 print( smooth_bathtub.dtype )
 print( smooth_bathtub.astype(np.uint8).dtype )
-
-
-# In[ ]:
-
 
 # layer-specific kernel widths
 kernelN = 31
@@ -612,16 +450,6 @@ plt.imshow(smooth_bathtub.astype(np.uint8))
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 6
-
-# In[ ]:
-
 
 # Create two feature-detection kernels
 
@@ -634,10 +462,6 @@ VK = np.array([ [1,0,-1],
 HK = np.array([ [ 1, 1, 1],
                 [ 0, 0, 0],
                 [-1,-1,-1] ])
-
-
-# In[ ]:
-
 
 fig,ax = plt.subplots(2,2,figsize=(16,8))
 
@@ -660,10 +484,5 @@ ax[1,1].axis('off')
 
 plt.savefig('Figure_07_11.png',dpi=300)
 plt.show()
-
-
-# In[ ]:
-
-
 
 

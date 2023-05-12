@@ -1,21 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # Practical Linear Algebra for Data Science
-# ## Mike X Cohen (sincxpress.com)
-# ### https://www.oreilly.com/library/view/practical-linear-algebra/9781098120603/
-# 
-# #### Code for chapter 10
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -31,20 +13,10 @@ import matplotlib.gridspec as gridspec
 
 
 # NOTE: these lines define global figure properties used for publication.
-from IPython import display
-display.set_matplotlib_formats('svg') # display figures in vector format
+import matplotlib_inline.backend_inline
+matplotlib_inline.backend_inline.set_matplotlib_formats('svg') # display figures in vector format
 plt.rcParams.update({'font.size':14}) # set global font size
 
-
-# In[ ]:
-
-
-
-
-
-# # Working with matrix equations
-
-# In[ ]:
 
 
 # generate some matrices
@@ -70,15 +42,6 @@ print('res2:'), print(' ')
 print( np.round(res2,10) )
 
 
-# In[ ]:
-
-
-
-
-
-# # RREF
-
-# In[ ]:
 
 
 # the augmented matrix
@@ -91,16 +54,6 @@ print(symMat)
 # RREF
 symMat.rref()[0] # just the first output to get the RREF matrix (the second output is the indices of the pivots per row)
 
-
-# In[ ]:
-
-
-
-
-
-# # LU
-
-# In[ ]:
 
 
 # simple example with integers
@@ -120,10 +73,6 @@ print(U), print(' ')
 
 print('A - LU: ')
 print(A - L@U) # should be zeros
-
-
-# In[ ]:
-
 
 # matrix sizes
 m = 4
@@ -164,16 +113,6 @@ plt.savefig('Figure_10_01.png',dpi=300)
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 1
-
-# In[ ]:
-
 
 # Time-test!
 
@@ -191,16 +130,6 @@ for i in range(1000):
 toc = time.time() - tic
 toc # print the result in seconds
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 2
-
-# In[ ]:
 
 
 # make a reduced-rank random matrix
@@ -232,22 +161,8 @@ plt.tight_layout()
 plt.savefig('Figure_10_02.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
 np.round(L,2)
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 3
-
-# In[ ]:
 
 
 # a matrix and its det
@@ -268,16 +183,6 @@ print(detLU,detNP)
 print(detLU-detNP)
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 4
-
-# In[ ]:
-
 
 # matrix sizes
 m = 4
@@ -294,16 +199,6 @@ invViaInv = np.linalg.inv(A)
 
 np.round( A@invViaLU ,10)
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 5
-
-# In[ ]:
 
 
 # The reason is that writing out the equation leads to PtP in the middle, which is the identity matrix. 
@@ -323,15 +218,6 @@ AtA_direct = A.T @ A
 
 # compare to direct computation
 np.round( AtA_lu - AtA_direct ,10)
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
 
 
 

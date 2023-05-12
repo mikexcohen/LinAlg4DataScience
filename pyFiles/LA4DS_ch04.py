@@ -1,25 +1,10 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # Practical Linear Algebra for Data Science
-# ## Mike X Cohen (sincxpress.com)
-# ### https://www.oreilly.com/library/view/practical-linear-algebra/9781098120603/
-# 
-# #### Code for chapter 4
-
-# In[ ]:
-
-
 import numpy as np
 import matplotlib.pyplot as plt
 
 # NOTE: these lines define global figure properties used for publication.
-from IPython import display
-display.set_matplotlib_formats('svg') # print figures in svg format
+import matplotlib_inline.backend_inline
+matplotlib_inline.backend_inline.set_matplotlib_formats('svg') # print figures in svg format
 plt.rcParams.update({'font.size':14}) # set global font size
-
-
-# In[ ]:
 
 
 N = 30
@@ -79,27 +64,9 @@ plt.savefig('Figure_04_01.png',dpi=300) # write out the fig to a file
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
 
 ### Note: The code for k-means is in Exercise 7 below.
 
-
-# In[ ]:
-
-
-
-
-
-# # Exercise 1
-
-# In[ ]:
 
 
 # the function
@@ -130,10 +97,6 @@ r,c = corrAndCosine(a,b)
 # confirm that the correlation matches with np.corrcoef
 print(r,np.corrcoef(a,b)[0,1])
 
-
-# In[ ]:
-
-
 # compare r and c without mean-centering
 a = np.random.randn(15) + 10 # note the offset!
 b = np.random.randn(15)
@@ -152,12 +115,6 @@ print('With mean-centering (should be the same):')
 print( np.round(corrAndCosine(aNoMean,bNoMean),4) )
 
 # NOTE: In the printing code above, I rounded to 4 significant digits just for visual clarity.
-
-
-# ## Exercise 2
-
-# In[ ]:
-
 
 # create the variables
 a = np.arange(4,dtype=float)
@@ -186,33 +143,13 @@ plt.savefig('Figure_04_02.png',dpi=300) # write out the fig to a file
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# ## Exercise 3
-
-# In[ ]:
-
 
 # import the function
 from scipy.stats import pearsonr
 
 # inspect the source code
-get_ipython().run_line_magic('pinfo2', 'pearsonr')
+??pearsonr
 
-
-# In[ ]:
-
-
-
-
-
-# ## Exercise 4
-
-# In[ ]:
 
 
 # a bare-bones correlation function
@@ -253,16 +190,6 @@ print(f'My function took {t1*1000:.2f} ms')
 print(f'   pearsonr took {t2*1000:.2f} ms')
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 5
-
-# In[ ]:
-
 
 # create the kernel
 kernel = np.array([-1,1])
@@ -283,10 +210,6 @@ axs[1].set_title('Time series signal')
 
 plt.savefig('Figure_04_04ab.png',dpi=300)
 plt.show()
-
-
-# In[ ]:
-
 
 # initialize the feature map as zeros
 featureMap = np.zeros(len(signal))
@@ -316,16 +239,6 @@ plt.savefig('Figure_04_04c.png',dpi=300)
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 6
-
-# In[ ]:
-
 
 # define the kernel (a sorta-kinda Gaussian)
 kernel = np.array([0,.1,.3,.8,1,.8,.3,.1,0])
@@ -353,10 +266,6 @@ axs[1].set_title('Time series signal')
 plt.savefig('Figure_04_06ab.png',dpi=300)
 plt.show()
 
-
-# In[ ]:
-
-
 # make a copy of the signal for filtering
 filtsig = timeseries.copy()
 
@@ -377,12 +286,6 @@ axs[1].legend()
 
 plt.savefig('Figure_04_06c.png',dpi=300)
 plt.show()
-
-
-# # Exercise 7
-
-# In[ ]:
-
 
 # define the kernel (a sorta-kinda Gaussian)
 kernel = np.array([0,.1,.3,.8,-1,.8,.3,.1,0])
@@ -412,16 +315,6 @@ plt.legend()
 plt.show()
 
 
-# In[ ]:
-
-
-
-
-
-# # Exercise 8
-
-# In[ ]:
-
 
 ## Create data
 nPerClust = 50
@@ -450,10 +343,6 @@ plt.xticks([])
 plt.yticks([])
 
 plt.show()
-
-
-# In[ ]:
-
 
 ## initialize random cluster centroids
 k = 3 # extract three clusters
@@ -505,10 +394,5 @@ for iteri in range(3):
 
 plt.savefig('Figure_04_03.png',dpi=300)
 plt.show()
-
-
-# In[ ]:
-
-
 
 
