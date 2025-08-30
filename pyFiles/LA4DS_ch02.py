@@ -11,7 +11,7 @@ plt.rcParams.update({'font.size':14}) # set global font size
 # a vector as a Python list datatype
 asList = [1,2,3]
 
-# same numbers, but as a dimensionless numpy array
+# same numbers, but as an orientationless numpy array
 asArray = np.array([1,2,3])
 
 # again same numbers, but now endowed with orientations
